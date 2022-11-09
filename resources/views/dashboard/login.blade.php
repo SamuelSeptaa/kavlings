@@ -42,8 +42,11 @@
 
                             <form class="pt-3" id="login-form" method="POST" action="{{route('sign-in')}}">
                                 @csrf
-                                <div class="alert alert-danger" style="display: none;" role="alert">
+                                @if(Session::has('failed'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{session('failed')}}
                                 </div>
+                                @endif
                                 <div class="form-group">
                                     <input type="text"
                                         class="form-control form-control-lg @error('email') is-invalid @enderror"

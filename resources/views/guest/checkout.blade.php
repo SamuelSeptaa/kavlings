@@ -7,7 +7,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
                     <p>Fresh and Organic</p>
-                    <h1>Check Out Product</h1>
+                    <h1>Check Out Kavlings</h1>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                         data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Shipping Address
+                                        Payment Method
                                     </button>
                                 </h5>
                             </div>
@@ -62,25 +62,6 @@
                                 <div class="card-body">
                                     <div class="shipping-address-form">
                                         <p>Your shipping address form is here.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card single-accordion">
-                            <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        Card Details
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="card-details">
-                                        <p>Your card details goes here.</p>
                                     </div>
                                 </div>
                             </div>

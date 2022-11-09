@@ -4,6 +4,7 @@ use App\Http\Controllers\Kavling;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\UserList;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -18,6 +19,11 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/404', function () {
+    return view('errors.404');
+})->name('eror404');
+
 
 Route::get('/', function () {
     return view('guest.index');
@@ -34,6 +40,9 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('guest.checkout');
 });
+Route::get('/kavling', function () {
+    return view('guest.kavling');
+});
 
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
 Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('sign-in');
@@ -48,4 +57,10 @@ Route::middleware(['auth'])->group(function () {
     })->name('logout');
 
     Route::get('/dashboard', [Dashboard::class, 'index'])->name("dashboard");
+
+    Route::get('/user-list', [UserList::class, 'index'])->name("user-list");
+    Route::post('user-list/show', [UserList::class, 'show'])->name("show-user-list");
+    Route::get('user-list/detail', [UserList::class, 'detail'])->name("detail-user-list");
+    Route::post('user-list/update', [UserList::class, 'update'])->name("update-userlist");
+    Route::post('user-list/delete', [UserList::class, 'delete'])->name("delete-userlist");
 });

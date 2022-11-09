@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         Skydash Admin
     </title>
@@ -135,9 +136,9 @@
     <script src="{{asset('skydash/js/Chart.roundedBarCharts.js')}}"></script>
     <script src="{{asset('skydash/js/script.js')}}"></script>
     <!-- End custom js for this page-->
-    <script>
-        const base_url =;
-    </script>
+    @isset($script)
+    @include($script)
+    @endisset
 </body>
 
 </html>

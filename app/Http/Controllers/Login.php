@@ -29,5 +29,6 @@ class Login extends Controller
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
+        return redirect()->route('login')->with('failed', 'Invalid login credentials (informasi login tidak valid)');
     }
 }
