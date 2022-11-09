@@ -2756,3 +2756,76 @@ table.order-details tbody td {
   vertical-align: middle;
   width: 100%;
 }
+
+/* -----------------------------------------------------------------------------
+
+# Custom Page Style
+
+----------------------------------------------------------------------------- */
+.kavling-list{
+  height: 100vh;
+  padding: 20px;
+  overflow:auto;
+  border:1px solid #0ADA0A;
+}
+
+.kavling-list::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background: #7a7b5a;
+}
+
+.kavling-list::-webkit-scrollbar-track {
+  background-color: #e5e5e5;
+}
+.kavling-list::-webkit-scrollbar-thumb {
+  background: #7a7b5a;
+}
+.kavling-list::-webkit-scrollbar-thumb:hover {
+  background: #7a7b5a;
+}
+
+.kavling-list .denah-scrollable{          
+  width: 5000px;
+}
+.block-a{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.parking-area{
+  height: 250px;
+  width: 100%;
+  background-color: black;
+  position: relative;
+  margin-bottom: 20px;
+}
+.parking-area .parking-text{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.a1-1{
+  height: 750px;
+  width: 375px;
+  background-color: #0ADA0A;
+}
+.kavling{
+  width: 24.6px;
+  height: 35px;
+  color: #007bff;
+  border: 1px solid;
+  border-color: #007bff;
+  display: inline-block;
+}
+.kavling.active, .kavling:hover{
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}

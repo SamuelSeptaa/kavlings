@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\Kavling;
+use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Login;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +33,19 @@ Route::get('/cart', function () {
 });
 Route::get('/checkout', function () {
     return view('guest.checkout');
+});
+
+Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
+Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('sign-in');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', function (Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    })->name('logout');
+
+    Route::get('/dashboard', [Dashboard::class, 'index'])->name("dashboard");
 });
