@@ -25,5 +25,9 @@ class Login extends Controller
                 return redirect()->intended('dashboard');
             }
         }
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('dashboard');
+        }
     }
 }
