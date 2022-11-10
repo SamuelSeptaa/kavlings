@@ -8,7 +8,7 @@
             </a>
         </li>
         <li class="nav-item @if ($controller== 'userlist') {{" active"}} @endif">
-            <a class="nav-link" href="{{route('user-list')}}">
+            <a class="nav-link" href="{{route('userlist')}}">
                 <i class="icon-head menu-icon"></i>
                 <span class="menu-title">User List</span>
             </a>

@@ -58,9 +58,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [Dashboard::class, 'index'])->name("dashboard");
 
-    Route::get('/user-list', [UserList::class, 'index'])->name("user-list");
+    Route::get('/user-list', [UserList::class, 'index'])->name("userlist");
     Route::post('user-list/show', [UserList::class, 'show'])->name("show-user-list");
     Route::get('user-list/detail', [UserList::class, 'detail'])->name("detail-user-list");
     Route::post('user-list/update', [UserList::class, 'update'])->name("update-userlist");
     Route::post('user-list/delete', [UserList::class, 'delete'])->name("delete-userlist");
+    Route::get('user-list/add', [UserList::class, 'add'])->name("add-user-list");
+    Route::post('user-list/store', [UserList::class, 'store'])->name("store-userlist");
 });

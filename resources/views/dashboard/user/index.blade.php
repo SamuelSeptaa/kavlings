@@ -9,7 +9,7 @@
                         User List
                     </h4>
                     <div class="row mb-3 justify-content-end pr-3">
-                        <a href="/" class="btn btn-primary">Tambah</a>
+                        <a href="{{route('add-user-list')}}" class="btn btn-primary">Tambah</a>
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group row">
@@ -20,6 +20,11 @@
                             </div>
                         </div>
                     </div>
+                    @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table table-striped" id="data-user" style="width: 100%;">
                             <thead>

@@ -60,7 +60,7 @@ class UserList extends Controller
     public function update(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:5|max:100',
+            'name' => 'required|min:5|max:100|regex:/^[a-zA-Z ]*$/',
             'email' => 'required|email:dns|max:100|unique:users,email,' . $request->id . '',
             'password' => 'max:100',
             'password_confirm' => 'same:password',
@@ -76,7 +76,7 @@ class UserList extends Controller
         User::where('id', $request->id)
             ->update($data);
 
-        return redirect()->route("user-list");
+        return redirect()->route('userlist')->with('success', 'User berhasil diubah');
     }
 
     public function delete(Request $request)
@@ -93,5 +93,34 @@ class UserList extends Controller
             ['message' => 'Success menghapus'],
             200
         );
+    }
+
+    public function add()
+    {
+        $forms = [
+            array('name', 'text', "Nama"),
+            array('email', 'text', "Email"),
+            array('password', 'password', "Password"),
+            array('password_confirm', 'password', "Konfirmasi Password"),
+        ];
+
+        $this->data['forms'] = $forms;
+        $this->data['title'] = "Tambah User";
+        return view('layout.add', $this->data);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|min:5|max:100|regex:/^[a-zA-Z ]*$/',
+            'email' => 'required|email:dns|max:100|unique:users,email',
+            'password' => 'required|max:100',
+            'password_confirm' => 'required|same:password',
+        ]);
+
+        unset($data['password_confirm']);
+        $data['password'] = bcrypt($request->password);
+        User::insert($data);
+        return redirect()->route('userlist')->with('success', 'User baru ditambahkan');
     }
 }

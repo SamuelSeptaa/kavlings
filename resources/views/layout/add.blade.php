@@ -7,10 +7,9 @@
                 <h4 class="card-title">
                     {{$title}}
                 </h4>
-                <form class="edit-forms" id="form-detail" method="POST" action="{{route('update-'.$controller)}}">
+                <form class="edit-forms" id="form-add" method="POST" action="{{route('store-'.$controller)}}">
                     @csrf
                     <div class="row">
-                        <input type="hidden" name="id" value="{{ $detail->id}}">
                         @foreach ($forms as $form)
                         @php
                         $rowname = $form[0];
@@ -24,7 +23,7 @@
                                     {{$label}}
                                 </label>
                                 <input type="text" class="form-control @error($rowname) is-invalid @enderror"
-                                    id="{{$rowname}}" name="{{$rowname}}" value="{{$detail->$rowname}}"
+                                    id="{{$rowname}}" name="{{$rowname}}" value="{{old($rowname)}}"
                                     placeholder="Insert {{$label}}">
                                 @error($rowname)
                                 <div class="invalid-feedback" for="{{$rowname}}">{{ $message }}</div>
@@ -38,7 +37,7 @@
                                     {{$label}}
                                 </label>
                                 <input type="number" class="form-control @error($rowname) is-invalid @enderror"
-                                    id="{{$rowname}}" name="{{$rowname}}" value="{{$detail->$rowname}}"
+                                    id="{{$rowname}}" name="{{$rowname}}" value="{{old($rowname)}}"
                                     placeholder="Insert {{$label}}">
                                 @error($rowname)
                                 <div class="invalid-feedback" for="{{$rowname}}">{{ $message }}</div>
@@ -66,7 +65,7 @@
                                 </label>
                                 <textarea class="form-control @error($rowname) is-invalid @enderror" id="{{$rowname}}"
                                     name="{{$rowname}}" rows="4"
-                                    placeholder="Insert {{$label}}">{{$detail->$rowname}}</textarea>
+                                    placeholder="Insert {{$label}}">{{old($rowname)}}</textarea>
                                 @error($rowname)
                                 <div class="invalid-feedback" for="{{$rowname}}">{{ $message }}</div>
                                 @enderror
@@ -79,7 +78,7 @@
                                     {{$label}}
                                 </label>
                                 <input type="text" class="form-control datepicker @error($rowname) is-invalid @enderror"
-                                    id="{{$rowname}}" name="{{$rowname}}" value="{{$detail->$rowname}}"
+                                    id="{{$rowname}}" name="{{$rowname}}" value="{{old($rowname)}}"
                                     placeholder="Insert {{$label}}">
                                 @error($rowname)
                                 <div class="invalid-feedback" for="{{$rowname}}">{{ $message }}</div>
@@ -99,7 +98,7 @@
                                     class="w-100 form-select select2 @error($rowname) is-invalid @enderror">
                                     <option></option>
                                     @foreach ($value as $v)
-                                    <option {{($v->id == $detail->$rowname) ? 'selected' : ''}} value="{{$v->id}}">
+                                    <option {{($v->id == old($rowname)) ? 'selected' : ''}} value="{{$v->id}}">
                                         {{ $v->text}}
                                     </option>
                                     @endforeach

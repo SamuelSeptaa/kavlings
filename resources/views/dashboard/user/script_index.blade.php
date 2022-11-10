@@ -84,7 +84,6 @@ function deleteData(id) {
 	$("#search").keyup(
 		debounce(function () {
 			table.search(this.value).draw();
-			toggleHapusFilter(isFiltered());
 		}, 200)
 	);
     });
