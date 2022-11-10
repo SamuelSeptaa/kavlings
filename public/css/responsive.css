@@ -1,5 +1,6 @@
 /* Medium Layout: 1280px. */
 @media only screen and (min-width: 992px) {
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) { 
@@ -198,7 +199,15 @@
 	    z-index: 999;
 	    color: #fff;
 	}
-
+	.block-ai{
+	  height: 770px;
+	}
+	.block-bi{
+	  height: 770px;
+	}
+	.block-ci{
+	  height: 770px;
+	}
 }
 
 /* Mobile Layout: 320px. */
@@ -556,6 +565,20 @@
 	    z-index: 999;
 	    color: #fff;
 	}
+	.parking-area{
+		margin-bottom: 25px;
+	}
+	.block-ai{
+		height: 760px;
+	  }
+	.block-bi{
+		width: 180px;
+		height: 760px;
+	  }
+	.block-ci{
+		width: 744px;
+		height: 760px;
+	  }
 }
 /* Wide Mobile Layout: 480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) { 
@@ -577,3 +600,22 @@
 	    display: block;
 	}
 }
+
+
+@media (min-width: 1200px) {
+	.block-ai{
+	  width: 380px;
+	  height: 750px;
+	}
+	.block-bi{
+		width: 180px;
+		height: 750px;
+	}
+	.block-ci{
+		width: 750px;
+		height: 750px;
+	}
+	.kavling{
+		height: 35px;
+	  }
+  }

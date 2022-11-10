@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Kavling;
+use App\Http\Controllers\Kavlings;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Login;
@@ -40,9 +40,7 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('guest.checkout');
 });
-Route::get('/kavling', function () {
-    return view('guest.kavling');
-});
+Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
 
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
 Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('sign-in');

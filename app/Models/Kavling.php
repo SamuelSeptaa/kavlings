@@ -14,4 +14,9 @@ class Kavling extends Model
         'status',
         'block_id',
     ];
+
+    public function block()
+    {
+        return $this->belongsTo(Block::class);
+    }
 }

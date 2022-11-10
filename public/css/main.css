@@ -2763,7 +2763,7 @@ table.order-details tbody td {
 
 ----------------------------------------------------------------------------- */
 .kavling-list{
-  height: 100vh;
+  height: 1200px;
   padding: 20px;
   overflow:auto;
   border:1px solid #0ADA0A;
@@ -2786,46 +2786,111 @@ table.order-details tbody td {
 }
 
 .kavling-list .denah-scrollable{          
-  width: 5000px;
+  width: 2550px;
+  display: flex;
+}
+
+.street{
+  height: 50px;
+  color: brown;
+  border: 1px solid;
+  border-color: brown;
+  width: 2550px;
+  text-align: center;
 }
 .block-a{
-  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 20px;
+}
+
+.block-b{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+
+}
+.block-c{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+
 }
 
 .parking-area{
-  height: 250px;
+  height: 195px;
   width: 100%;
-  background-color: black;
+  background-color: whitesmoke;
   position: relative;
   margin-bottom: 20px;
 }
-.parking-area .parking-text{
+
+
+.toilets{
+  width: 50px;
+  margin-left: 15px;
+  height: 36px;
+  color: brown;
+  border: 1px solid;
+  border-color: brown;
+  display: inline-block;
+  border-radius: 5px;
+  position: relative;
+}
+
+.parking-area .parking-text, .toilets .toilet-text{
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
 }
-.a1-1{
-  height: 750px;
-  width: 375px;
-  background-color: #0ADA0A;
+.block-ai{
+  width: 376px;
+  height: 765px;
+  background-color: whitesmoke;
+  border: solid 1px brown;
 }
-.kavling{
+.block-bi{
+  width: 176px;
+  height: 765px;
+  background-color: whitesmoke;
+  border: solid 1px brown;
+}
+.block-ci{
+  width: 740px;
+  height: 765px;
+  background-color: whitesmoke;
+  border: solid 1px brown;
+}
+.kavling, .kavling-keterangan{
   width: 24.6px;
-  height: 35px;
+  height: 36px;
   color: #007bff;
   border: 1px solid;
   border-color: #007bff;
   display: inline-block;
+  border-radius: 5px;
 }
 .kavling.active, .kavling:hover{
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
 }
+
+.kavling.nonactive{
+  color: #fff;
+  background-color: #d90000;
+  border-color: #a10000;
+}
+
+
+

@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Block extends Model
+class RowBlock extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'block_name',
+        'rowname',
     ];
 
-    public function kavlings()
+    public function blocks()
     {
-        return $this->hasMany(Kavling::class);
+        return $this->hasMany(Block::class);
     }
 }
