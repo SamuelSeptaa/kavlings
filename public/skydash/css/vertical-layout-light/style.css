@@ -30658,3 +30658,10 @@ div.tagsinput span.tag a {
   background-color: white;
   border: none;
 }
+.btn-filter{
+  display: inline-block;
+}
+.btn-filter.active{
+  background-color: #248AFD;
+  color: white;
+}

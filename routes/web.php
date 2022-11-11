@@ -3,6 +3,7 @@
 use App\Http\Controllers\Kavlings;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\KavlingController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\UserList;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [Dashboard::class, 'index'])->name("dashboard");
 
+
+    //CRUD USER/ADMIN
     Route::get('/user-list', [UserList::class, 'index'])->name("userlist");
     Route::post('user-list/show', [UserList::class, 'show'])->name("show-user-list");
     Route::get('user-list/detail', [UserList::class, 'detail'])->name("detail-user-list");
@@ -63,4 +66,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('user-list/delete', [UserList::class, 'delete'])->name("delete-userlist");
     Route::get('user-list/add', [UserList::class, 'add'])->name("add-user-list");
     Route::post('user-list/store', [UserList::class, 'store'])->name("store-userlist");
+
+    //CRUD Kavling
+    Route::get('/kavling-list', [KavlingController::class, 'index'])->name('list-kavling');
+    Route::post('kavling-list/show', [KavlingController::class, 'show'])->name("show-kavling");
 });

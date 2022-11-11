@@ -11,27 +11,36 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index()
+    //Yajra Datatable Custom Function
+    protected function YajraFilterValue(
+        $filterValue,
+        $query,
+        $columnFilter,
+        $join = false,
+        $table = null,
+        $columnRelation = null,
+        $tableJoin = null
+    ) {
+        if ($join)
+            $query->join($tableJoin, "$table.$columnRelation", '=', "$tableJoin.id");
+
+        $filterValue = json_decode($filterValue);
+        if (!empty($filterValue)) {
+            $query->whereIn($columnFilter, $filterValue);
+        }
+    }
+
+    protected function YajraColumnSearch($query, $columnSearch, $searchValue)
     {
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://pro.rajaongkir.com/api/province",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "key:"
-            ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        curl_close($curl);
-        $response = json_decode($response);
-
-        dd($response);
+        $query->where(function ($query) use ($columnSearch, $searchValue) {
+            $i = 0;
+            foreach ($columnSearch as $item) {
+                if ($i == 0)
+                    $query->where($item, 'like', "%{$searchValue}%");
+                else
+                    $query->orWhere($item, 'like', "%{$searchValue}%");
+                $i++;
+            }
+        });
     }
 }
