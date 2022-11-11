@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\DB;
+
 function random_string($type = 'alnum', $len = 8)
 {
     switch ($type) {
@@ -26,4 +29,23 @@ function random_string($type = 'alnum', $len = 8)
         case 'sha1':
             return sha1(uniqid(mt_rand(), TRUE));
     }
+}
+
+function currencyIDR($nominal, $symbol = true)
+{
+    $val = "";
+    if ($symbol) {
+        $val .= "Rp. ";
+    }
+
+    $val .= number_format($nominal, 0, ",", ".");
+    return $val;
+}
+
+function get_enum_values($table, $field)
+{
+    $types = DB::select(DB::raw("SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'"));
+    preg_match("/^enum\(\'(.*)\'\)$/", $types[0]->Type, $matches);
+    $enum = explode("','", $matches[1]);
+    return $enum;
 }

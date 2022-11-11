@@ -13,6 +13,12 @@
                 <span class="menu-title">Kavling List</span>
             </a>
         </li>
+        <li class="nav-item @if ($controller== 'add-ons') active @endif">
+            <a class="nav-link" href="{{route('list-add-ons')}}">
+                <i class="icon-circle-plus menu-icon"></i>
+                <span class="menu-title">Add On List</span>
+            </a>
+        </li>
         <li class="nav-item @if ($controller== 'userlist') active @endif">
             <a class="nav-link" href="{{route('userlist')}}">
                 <i class="icon-head menu-icon"></i>

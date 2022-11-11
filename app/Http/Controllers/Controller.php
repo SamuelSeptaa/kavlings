@@ -11,7 +11,17 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    //Yajra Datatable Custom Function
+    //Yajra Datatable Custom Function    
+    /**
+     * YajraFilterValue
+     * @param string $filterValue from request->filterValue
+     * @param mixed $query
+     * @param string $columnFilter kolom yang difilter
+     * @param bool $join apakah join dngn tabel lain
+     * @param string $columnRelation
+     * @param string $tableJoin
+     * @return void
+     */
     protected function YajraFilterValue(
         $filterValue,
         $query,
@@ -30,6 +40,14 @@ class Controller extends BaseController
         }
     }
 
+    /**
+     * YajraColumnSearch
+     *
+     * @param  mixed $query
+     * @param  array $columnSearch
+     * @param  string $searchValue
+     * @return void
+     */
     protected function YajraColumnSearch($query, $columnSearch, $searchValue)
     {
         $query->where(function ($query) use ($columnSearch, $searchValue) {

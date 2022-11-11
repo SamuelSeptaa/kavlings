@@ -17,6 +17,7 @@ class UserList extends Controller
     }
     public function index()
     {
+        $this->data['title'] = "Daftar Pengguna";
         $this->data['script']   = 'dashboard.user.script_index';
         return view('dashboard.user.index', $this->data);
     }

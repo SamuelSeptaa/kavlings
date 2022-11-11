@@ -12,8 +12,7 @@
                         <a href="{{route('add-user-list')}}" class="btn btn-primary">Tambah</a>
                     </div>
                     <div class="row justify-content-end">
-                        <div class="col-lg-6 col-md-6 col-sm-12 form-group row">
-
+                        <div class="col-lg-8 col-md-10 col-sm-12 row">
                             <label class="col-sm-3 col-form-label">Search</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control form-control-sm" name="search" id="search">

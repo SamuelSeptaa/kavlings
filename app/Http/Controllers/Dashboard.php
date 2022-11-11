@@ -15,6 +15,7 @@ class Dashboard extends Controller
     }
     public function index()
     {
+        $this->data['title']        = "Dashboard";
         return view('dashboard.index', $this->data);
     }
 }

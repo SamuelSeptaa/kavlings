@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddOns;
 use App\Http\Controllers\Kavlings;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
@@ -70,4 +71,10 @@ Route::middleware(['auth'])->group(function () {
     //CRUD Kavling
     Route::get('/kavling-list', [KavlingController::class, 'index'])->name('list-kavling');
     Route::post('kavling-list/show', [KavlingController::class, 'show'])->name("show-kavling");
+    Route::post('kavling-list/nonactive', [KavlingController::class, 'destroy'])->name("nonactive-kavling");
+    Route::post('kavling-list/activing', [KavlingController::class, 'activing'])->name("activing-kavling");
+
+    Route::get('/add-on-list', [AddOns::class, 'index'])->name('list-add-ons');
+    Route::get('/add-on-list/add', [AddOns::class, 'add'])->name('add-add-ons');
+    Route::post('/add-on-list/show', [AddOns::class, 'show'])->name('show-add-ons');
 });

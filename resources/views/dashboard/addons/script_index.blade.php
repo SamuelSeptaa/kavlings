@@ -33,7 +33,7 @@
 							icon: "success",
 							title: `${response.message}`,
 						}).then((result) => {
-							$("#data-kavling").DataTable().ajax.reload();
+							$("#data-add-ons").DataTable().ajax.reload();
 						});
 					},
 					error: function (request, status, error) {
@@ -83,7 +83,7 @@
 						icon: "success",
 						title: `${response.message}`,
 					}).then((result) => {
-						$("#data-kavling").DataTable().ajax.reload();
+						$("#data-add-ons").DataTable().ajax.reload();
 					});
 				},
 				error: function (request, status, error) {
@@ -102,14 +102,14 @@ $(document).ready(function(e){
 
     let filterValue = [];
 
-        var table = $("#data-kavling").DataTable({
+        var table = $("#data-add-ons").DataTable({
 		pageLength: 30,
 		scrollX: true,
 		processing: true,
 		serverSide: true,
 		order: [],
 		ajax: {
-			url: `{{route('show-kavling')}}`,
+			url: `{{route('show-add-ons')}}`,
 			type: "POST",
 			data: function (d) {
                 d.filterValue = JSON.stringify(filterValue)
@@ -124,12 +124,12 @@ $(document).ready(function(e){
                 orderable: false, 
                 searchable: false
             },
-            {data: 'nama_kavling', name: 'nama_kavling'},
-            {data: 'statusbadge', name: 'statusbadge', 
-				orderable: false, 
+            {data: 'nama_add_on', name: 'nama_add_on'},
+            {data: 'hargaIDR', name: 'harga'},
+			{data: 'statusbadge', name: 'statusbadge',
+                orderable: false, 
                 searchable: false
-			},
-            {data: 'block_name', name: 'block_name'},
+            },
         ],
 		dom: "rtip",
 	});
