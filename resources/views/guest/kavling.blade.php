@@ -15,7 +15,7 @@
 </div>
 <!-- end breadcrumb section -->
 
-<!-- contact form -->
+<!-- kavling section -->
 <div class="mt-150 mb-150">
     <div class="container-fluid">
         <div class="h6">Keterangan :</div>
@@ -56,6 +56,7 @@
                         @endif
                         @foreach ($b->kavlings as $a)
                         <div class="kavling @if ($a->status=='UNAVAILABLE') nonactive @endif" data-id="{{$a->id}}">
+                            <div class="nama-kavling">{{$a->nama_kavling}}</div>
                         </div>
                         @endforeach
                         @if($i==1)
@@ -89,6 +90,7 @@
                         @endif
                         @foreach ($b->kavlings as $a)
                         <div class="kavling @if ($a->status=='UNAVAILABLE') nonactive @endif" data-id="{{$a->id}}">
+                            <div class="nama-kavling">{{$a->nama_kavling}}</div>
                         </div>
                         @endforeach
                         @if($i==2)
@@ -122,6 +124,7 @@
                         @endif
                         @foreach ($b->kavlings as $a)
                         <div class="kavling @if ($a->status=='UNAVAILABLE') nonactive @endif" data-id="{{$a->id}}">
+                            <div class="nama-kavling">{{$a->nama_kavling}}</div>
                         </div>
                         @endforeach
                     </div>
@@ -148,6 +151,7 @@
                         @endif
                         @foreach ($b->kavlings as $a)
                         <div class="kavling @if ($a->status=='UNAVAILABLE') nonactive @endif" data-id="{{$a->id}}">
+                            <div class="nama-kavling">{{$a->nama_kavling}}</div>
                         </div>
                         @endforeach
                     </div>
@@ -174,6 +178,7 @@
                         @endif
                         @foreach ($b->kavlings as $a)
                         <div class="kavling @if ($a->status=='UNAVAILABLE') nonactive @endif" data-id="{{$a->id}}">
+                            <div class="nama-kavling">{{$a->nama_kavling}}</div>
                         </div>
                         @endforeach
                     </div>
@@ -182,8 +187,12 @@
             </div>
         </div>
 
+        <div class="row mt-5 justify-content-end">
+            <a href="{{route('kavling')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan
+                Sekarang (<span id="jumlah-dipilih">0</span>)</a>
+        </div>
     </div>
 </div>
-<!-- end contact form -->
+<!-- end kavling form -->
 <!-- end featured section -->
 @endsection

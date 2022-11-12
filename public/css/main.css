@@ -2763,7 +2763,7 @@ table.order-details tbody td {
 
 ----------------------------------------------------------------------------- */
 .kavling-list{
-  height: 1200px;
+  height: 100vh;
   padding: 20px;
   overflow:auto;
   border:1px solid #0ADA0A;
@@ -2844,7 +2844,7 @@ table.order-details tbody td {
   position: relative;
 }
 
-.parking-area .parking-text, .toilets .toilet-text{
+.parking-area .parking-text, .toilets .toilet-text, .nama-kavling{
   margin: 0;
   position: absolute;
   top: 50%;
@@ -2852,6 +2852,9 @@ table.order-details tbody td {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+.nama-kavling{
+  font-size: 9px;
 }
 .block-ai{
   width: 376px;
@@ -2866,7 +2869,7 @@ table.order-details tbody td {
   border: solid 1px brown;
 }
 .block-ci{
-  width: 740px;
+  width: 745px;
   height: 765px;
   background-color: whitesmoke;
   border: solid 1px brown;
@@ -2879,6 +2882,8 @@ table.order-details tbody td {
   border-color: #007bff;
   display: inline-block;
   border-radius: 5px;
+  position: relative;
+  cursor:pointer;
 }
 .kavling.active, .kavling:hover{
   color: #fff;

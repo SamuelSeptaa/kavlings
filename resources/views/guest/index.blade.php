@@ -83,14 +83,16 @@
                 <div class="single-product-item">
                     <h3>Kavling</h3>
                     <p class="product-price"><span>Per Kavling</span> 70$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</a>
+                    <a href="{{route('kavling')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan
+                        Sekarang</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <h3>Add On</h3>
                     <p class="product-price"><span>Mulai dari</span> 35$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</a>
+                    <a href="{{route('kavling')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan
+                        Sekarang</a>
                 </div>
             </div>
         </div>
@@ -104,45 +106,19 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1 text-center">
                 <div class="testimonial-sliders">
+                    @foreach ($testimonials as $t)
                     <div class="single-testimonial-slider">
                         <div class="client-meta">
-                            <h3>Saira Hakim</h3>
+                            <h3>{{$t->nama}}</h3>
                             <p class="testimonial-body">
-                                " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto
-                                beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis
-                                iste natus error sit voluptatem accusantium "
+                                " {{$t->testimonial_text}} "
                             </p>
                             <div class="last-icon">
                                 <i class="fas fa-quote-right"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="single-testimonial-slider">
-                        <div class="client-meta">
-                            <h3>David Niph</h3>
-                            <p class="testimonial-body">
-                                " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto
-                                beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis
-                                iste natus error sit voluptatem accusantium "
-                            </p>
-                            <div class="last-icon">
-                                <i class="fas fa-quote-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-testimonial-slider">
-                        <div class="client-meta">
-                            <h3>Jacob Sikim</h3>
-                            <p class="testimonial-body">
-                                " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto
-                                beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis
-                                iste natus error sit voluptatem accusantium "
-                            </p>
-                            <div class="last-icon">
-                                <i class="fas fa-quote-right"></i>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

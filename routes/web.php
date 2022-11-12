@@ -4,6 +4,7 @@ use App\Http\Controllers\AddOns;
 use App\Http\Controllers\Kavlings;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Index;
 use App\Http\Controllers\KavlingController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Testimonials;
@@ -28,21 +29,19 @@ Route::get('/404', function () {
 })->name('eror404');
 
 
-Route::get('/', function () {
-    return view('guest.index');
-});
+Route::get('/', [Index::class, 'index'])->name('index');
 Route::get('/about', function () {
     return view('guest.about');
-});
+})->name('about');
 Route::get('/contact', function () {
     return view('guest.contact');
-});
+})->name('contact');
 Route::get('/cart', function () {
     return view('guest.cart');
-});
+})->name('cart');
 Route::get('/checkout', function () {
     return view('guest.checkout');
-});
+})->name('checkout');
 Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
 
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');

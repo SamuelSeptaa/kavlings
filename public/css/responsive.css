@@ -208,6 +208,9 @@
 	.block-ci{
 	  height: 770px;
 	}
+	.nama-kavling{
+		font-size: 8px;
+	}
 }
 
 /* Mobile Layout: 320px. */
@@ -579,6 +582,9 @@
 		width: 744px;
 		height: 760px;
 	  }
+	  .nama-kavling{
+		font-size: 7px;
+	}
 }
 /* Wide Mobile Layout: 480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) { 
@@ -598,6 +604,9 @@
 	    margin-left: 0;
 	    margin-top: 15px;
 	    display: block;
+	}
+	.nama-kavling{
+		font-size: 7px;
 	}
 }
 

@@ -15,10 +15,10 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li><a href="/">Beranda</a></li>
-                            <li><a href="/about">Tentang</a></li>
-                            <li><a href="/contact">Kontak</a></li>
-                            <li><a href="/kavling">Kavlings</a>
+                            <li><a href="{{route('index')}}">Beranda</a></li>
+                            <li><a href="{{route('about')}}">Tentang</a></li>
+                            <li><a href="{{route('contact')}}">Kontak</a></li>
+                            <li><a href="{{route('kavling')}}">Kavlings</a>
                             </li>
                             <li>
                                 <div class="header-icons">

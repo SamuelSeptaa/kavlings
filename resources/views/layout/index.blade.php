@@ -53,7 +53,7 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="footer-box about-widget">
                         <h2 class="widget-title">About us</h2>
                         <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -74,22 +74,11 @@
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Shop</a></li>
-                            <li><a href="news.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{route('index')}}">Home</a></li>
+                            <li><a href="{{route('index')}}">About</a></li>
+                            <li><a href="{{route('index')}}">Kavling</a></li>
+                            <li><a href="{{route('index')}}">Contact</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-box subscribe">
-                        <h2 class="widget-title">Subscribe</h2>
-                        <p>Subscribe to our mailing list to get the latest updates.</p>
-                        <form action="index.html">
-                            <input type="email" placeholder="Email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -142,6 +131,10 @@
     <!-- main js -->
     <script src="{{asset('js/main.js')}}"></script>
 
+    @isset($script)
+    @include($script)
+    @endisset
 </body>
+
 
 </html>

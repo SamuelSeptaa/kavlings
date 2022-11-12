@@ -25,6 +25,7 @@ class Kavlings extends Controller
 
         // $block = Block::with('kavlings')->find(1);
         // dd($block->kavlings);
+        $this->data['script']      = 'guest.script_kavling';
         return view('guest.kavling', $this->data);
     }
 }
