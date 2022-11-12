@@ -14,9 +14,15 @@
             </a>
         </li>
         <li class="nav-item @if ($controller== 'add-ons') active @endif">
-            <a class="nav-link" href="{{route('list-add-ons')}}">
+            <a class="nav-link" href="{{route('add-ons')}}">
                 <i class="icon-circle-plus menu-icon"></i>
                 <span class="menu-title">Add On List</span>
+            </a>
+        </li>
+        <li class="nav-item @if ($controller== 'testimonials') active @endif">
+            <a class="nav-link" href="{{route('testimonials')}}">
+                <i class="icon-paper-clip menu-icon"></i>
+                <span class="menu-title">Testimonials</span>
             </a>
         </li>
         <li class="nav-item @if ($controller== 'userlist') active @endif">

@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class Kavlings extends Controller
 {
 
-    public $data = array();
-
     public function index()
     {
         $row1 = RowBlock::with('blocks')->find(1);

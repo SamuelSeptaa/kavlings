@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 class Dashboard extends Controller
 {
     //
-    public $data = array();
-
     public function __construct()
     {
         $this->data['controller'] = 'Dashboard';

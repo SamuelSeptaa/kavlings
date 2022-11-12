@@ -22,6 +22,8 @@ class Controller extends BaseController
      * @param string $tableJoin
      * @return void
      */
+
+    protected $data = array();
     protected function YajraFilterValue(
         $filterValue,
         $query,

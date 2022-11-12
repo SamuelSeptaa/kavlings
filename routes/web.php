@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\KavlingController;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\Testimonials;
 use App\Http\Controllers\UserList;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -61,20 +62,33 @@ Route::middleware(['auth'])->group(function () {
 
     //CRUD USER/ADMIN
     Route::get('/user-list', [UserList::class, 'index'])->name("userlist");
-    Route::post('user-list/show', [UserList::class, 'show'])->name("show-user-list");
-    Route::get('user-list/detail', [UserList::class, 'detail'])->name("detail-user-list");
-    Route::post('user-list/update', [UserList::class, 'update'])->name("update-userlist");
-    Route::post('user-list/delete', [UserList::class, 'delete'])->name("delete-userlist");
-    Route::get('user-list/add', [UserList::class, 'add'])->name("add-user-list");
-    Route::post('user-list/store', [UserList::class, 'store'])->name("store-userlist");
+    Route::post('/user-list/show', [UserList::class, 'show'])->name("show-user-list");
+    Route::get('/user-list/detail', [UserList::class, 'detail'])->name("detail-user-list");
+    Route::post('/user-list/update', [UserList::class, 'update'])->name("update-userlist");
+    Route::post('/user-list/delete', [UserList::class, 'delete'])->name("delete-userlist");
+    Route::get('/user-list/add', [UserList::class, 'add'])->name("add-user-list");
+    Route::post('/user-list/store', [UserList::class, 'store'])->name("store-userlist");
 
     //CRUD Kavling
     Route::get('/kavling-list', [KavlingController::class, 'index'])->name('list-kavling');
-    Route::post('kavling-list/show', [KavlingController::class, 'show'])->name("show-kavling");
-    Route::post('kavling-list/nonactive', [KavlingController::class, 'destroy'])->name("nonactive-kavling");
-    Route::post('kavling-list/activing', [KavlingController::class, 'activing'])->name("activing-kavling");
+    Route::post('/kavling-list/show', [KavlingController::class, 'show'])->name("show-kavling");
+    Route::post('/kavling-list/nonactive', [KavlingController::class, 'destroy'])->name("nonactive-kavling");
+    Route::post('/kavling-list/activing', [KavlingController::class, 'activing'])->name("activing-kavling");
 
-    Route::get('/add-on-list', [AddOns::class, 'index'])->name('list-add-ons');
-    Route::get('/add-on-list/add', [AddOns::class, 'add'])->name('add-add-ons');
+    Route::get('/add-on-list', [AddOns::class, 'index'])->name('add-ons');
     Route::post('/add-on-list/show', [AddOns::class, 'show'])->name('show-add-ons');
+    Route::get('/add-on-list/add', [AddOns::class, 'add'])->name('add-add-ons');
+    Route::post('/add-on-list/store', [AddOns::class, 'store'])->name('store-add-ons');
+    Route::get('/add-on-list/detail', [AddOns::class, 'detail'])->name('detail-add-ons');
+    Route::post('/add-on-list/update', [AddOns::class, 'update'])->name('update-add-ons');
+    Route::post('/add-on-list/nonactiving', [AddOns::class, 'destroy'])->name("nonactiving-add-ons");
+    Route::post('/add-on-list/activing', [AddOns::class, 'activing'])->name("activing-add-ons");
+
+    Route::get('/testimonials', [Testimonials::class, 'index'])->name('testimonials');
+    Route::post('/testimonials/show', [Testimonials::class, 'show'])->name('show-testimonials');
+    Route::get('/testimonials/add', [Testimonials::class, 'add'])->name('add-testimonials');
+    Route::post('/testimonials/store', [Testimonials::class, 'store'])->name('store-testimonials');
+    Route::get('/testimonials/detail', [Testimonials::class, 'detail'])->name('detail-testimonials');
+    Route::post('/testimonials/update', [Testimonials::class, 'update'])->name('update-testimonials');
+    Route::post('/testimonials/delete', [Testimonials::class, 'destroy'])->name('delete-testimonials');
 });

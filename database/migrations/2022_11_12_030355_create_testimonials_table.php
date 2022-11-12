@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddOnsTable extends Migration
+class CreateTestimonialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateAddOnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('add_ons', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_add_on');
-            $table->decimal('harga');
-            $table->text('keterangan');
-            $table->enum('status', ['ON', 'OFF'])->default('ON');
+            $table->string('nama', 50);
+            $table->string('testimonial_text');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateAddOnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_ons');
+        Schema::dropIfExists('testimonials');
     }
 }

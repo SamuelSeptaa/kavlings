@@ -9,24 +9,15 @@
                         {{$title}}
                     </h4>
                     <div class="row mb-3 justify-content-end pr-3">
-                        <a href="{{route('add-add-ons')}}" class="btn btn-primary">Tambah</a>
+                        <a href="{{route('add-testimonials')}}" class="btn btn-primary">Tambah</a>
                     </div>
                     <div class="row justify-content-end">
-                        <div class="col-lg-8 col-md-10 col-sm-12 row">
+                        <div class="col-lg-6 col-md-8 col-sm-12 row">
                             <label class="col-sm-3 col-form-label">Search</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control form-control-sm" name="search" id="search">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-form-label">Filter Status</div>
-                    <div class="filter-list mb-2">
-                        <button type="button" class="btn btn-outline-info mr-1 my-1 btn-sm btn-filter"
-                            data-block_id="all">Semua</button>
-                        @foreach ($filter as $f)
-                        <button type="button" class="btn btn-outline-info mr-1 my-1 btn-sm btn-filter"
-                            data-block_id="{{$f}}">Status {{$f}}</button>
-                        @endforeach
                     </div>
                     @if (session('success'))
                     <div class="alert alert-success ">
@@ -41,16 +32,10 @@
                                         Action
                                     </th>
                                     <th>
-                                        Nama Add On
+                                        Nama Customer
                                     </th>
                                     <th>
-                                        Harga
-                                    </th>
-                                    <th>
-                                        Keterangan
-                                    </th>
-                                    <th>
-                                        Status
+                                        Testimonial
                                     </th>
                                 </tr>
                             </thead>

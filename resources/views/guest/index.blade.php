@@ -86,7 +86,7 @@
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+            <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <h3>Add On</h3>
                     <p class="product-price"><span>Mulai dari</span> 35$ </p>
@@ -105,11 +105,8 @@
             <div class="col-lg-10 offset-lg-1 text-center">
                 <div class="testimonial-sliders">
                     <div class="single-testimonial-slider">
-                        <div class="client-avater">
-                            <img src="{{asset('img/avaters/avatar1.png')}}" alt="">
-                        </div>
                         <div class="client-meta">
-                            <h3>Saira Hakim <span>Local shop owner</span></h3>
+                            <h3>Saira Hakim</h3>
                             <p class="testimonial-body">
                                 " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto
                                 beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis
@@ -121,11 +118,8 @@
                         </div>
                     </div>
                     <div class="single-testimonial-slider">
-                        <div class="client-avater">
-                            <img src="{{asset('img/avaters/avatar2.png')}}" alt="">
-                        </div>
                         <div class="client-meta">
-                            <h3>David Niph <span>Local shop owner</span></h3>
+                            <h3>David Niph</h3>
                             <p class="testimonial-body">
                                 " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto
                                 beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis
@@ -137,11 +131,8 @@
                         </div>
                     </div>
                     <div class="single-testimonial-slider">
-                        <div class="client-avater">
-                            <img src="{{asset('img/avaters/avatar3.png')}}" alt="">
-                        </div>
                         <div class="client-meta">
-                            <h3>Jacob Sikim <span>Local shop owner</span></h3>
+                            <h3>Jacob Sikim</h3>
                             <p class="testimonial-body">
                                 " Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto
                                 beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis

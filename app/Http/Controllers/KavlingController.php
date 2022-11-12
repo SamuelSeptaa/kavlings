@@ -11,8 +11,6 @@ use Yajra\DataTables\Facades\DataTables;
 class KavlingController extends Controller
 {
     //
-    public $data = array();
-
     public function __construct()
     {
         $this->data['controller'] = 'kavlingcontroller';

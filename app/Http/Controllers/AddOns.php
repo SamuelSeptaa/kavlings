@@ -8,9 +8,6 @@ use Yajra\DataTables\Facades\DataTables;
 
 class AddOns extends Controller
 {
-
-    public $data = array();
-
     public function __construct()
     {
         $this->data['controller'] = 'add-ons';
@@ -30,6 +27,21 @@ class AddOns extends Controller
         return view('dashboard.addons.index', $this->data);
     }
 
+
+
+    public function add()
+    {
+        $this->data['title']    = 'Tambah Add On';
+        $forms = [
+            array('nama_add_on', 'text', 'Nama Add On'),
+            array('harga', 'number', 'Harga Add On'),
+            array('keterangan', 'textarea', 'Keterangan')
+        ];
+
+        $this->data['forms']     = $forms;
+
+        return view('layout.add', $this->data);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -38,7 +50,15 @@ class AddOns extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate(
+            [
+                'nama_add_on'   => 'required|min:5|max:255',
+                'harga'         => 'required',
+                'keterangan'    => 'required'
+            ],
+        );
+        AddOn::create($data);
+        return redirect()->route('add-ons')->with('success', 'Add on baru ditambahkan');
     }
 
     /**
@@ -55,6 +75,7 @@ class AddOns extends Controller
             ->addColumn('action', function ($query) {
                 return '
                 <div class="btn-group">
+                    <a class="btn btn-primary icons-action" href="' . route('detail-add-ons', "addons_id=$query->id") . '"><i class="mdi mdi-eye"></i></a>
                     <button type="button" class="btn btn-success icons-action" onclick="activingAddOns(' . $query->id . ')" ><i class="mdi mdi-checkbox-marked-circle-outline"></i></button>
                     <button type="button" class="btn btn-danger icons-action" onclick="nonactivingAddOns(' . $query->id . ')"><i class="mdi  mdi-block-helper"></i></button>
                 </div> 
@@ -78,6 +99,24 @@ class AddOns extends Controller
             ->make(true);
     }
 
+
+    public function detail(Request $request)
+    {
+        if (!$request->addons_id) return redirect()->route('eror404');
+        $detail = AddOn::findOrFail($request->addons_id);
+
+        $this->data['title']    = "Detail $detail->nama_add_on";
+
+        $forms = [
+            array('nama_add_on', 'text', 'Nama Add On'),
+            array('harga', 'number', 'Harga Add On'),
+            array('keterangan', 'textarea', 'Keterangan')
+        ];
+
+        $this->data['forms']    = $forms;
+        $this->data['detail']   = $detail;
+        return view('layout.detail', $this->data);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -85,9 +124,17 @@ class AddOns extends Controller
      * @param  \App\Models\AddOn  $addOn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AddOn $addOn)
+    public function update(Request $request)
     {
-        //
+        $data = $request->validate(
+            [
+                'nama_add_on'   => 'required|min:5|max:255',
+                'harga'         => 'required',
+                'keterangan'    => 'required'
+            ],
+        );
+        AddOn::where('id', $request->id)->update($data);
+        return redirect()->route('add-ons')->with('success', 'Add on berhasil diubah');
     }
 
     /**
@@ -96,8 +143,22 @@ class AddOns extends Controller
      * @param  \App\Models\AddOn  $addOn
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AddOn $addOn)
+    public function destroy(Request $request)
     {
-        //
+        $detail = AddOn::findOrFail($request->id);
+        AddOn::where('id', $request->id)
+            ->update(['status' => 'OFF']);
+
+        return response()->json(['message' => 'Berhasil menonaktfikan']);
+    }
+
+    public function activing(Request $request)
+    {
+        $detail = AddOn::findOrFail($request->id);
+
+        AddOn::where('id', $request->id)
+            ->update(['status' => 'ON']);
+
+        return response()->json(['message' => 'Berhasil mengaktifkan']);
     }
 }

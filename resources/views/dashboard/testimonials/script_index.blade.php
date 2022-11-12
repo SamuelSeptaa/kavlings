@@ -1,9 +1,9 @@
 <script>
-	//? function saat button block pada datatable di klik. nonaktive dengan ajax
-	function nonactivingAddOns(id) {
+	//? function saat button delete pada datatable di klik. delete dengan ajax
+	function deleteItem(id) {
 		Swal.fire({
 			icon: "question",
-			title: "Nonaktifkan add ons yang dipilih?",
+			title: "Hapus data yang dipilih?",
 			showCancelButton: true,
 			cancelButtonText: "Batal",
 			confirmButtonText: "Ya",
@@ -14,7 +14,7 @@
 				$.ajax({
 					type: "post",
 					dataType: "json",
-					url: "{{route('nonactiving-add-ons')}}",
+					url: "{{route('delete-testimonials')}}",
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
@@ -49,55 +49,6 @@
 		});
 	}
 
-	//? function saat button acvive pada datatable di klik. aktive dengan ajax
-	function activingAddOns(id) {
-	Swal.fire({
-		icon: "question",
-		title: "Aktifkan Kembali add on yang dipilih?",
-		showCancelButton: true,
-		cancelButtonText: "Batal",
-		confirmButtonText: "Ya",
-		reverseButtons: true,
-	}).then((result) => {
-		if (result.isConfirmed) {
-			showLoading();
-			$.ajax({
-				type: "post",
-				dataType: "json",
-				url: "{{route('activing-add-ons')}}",
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				},
-				data: {
-					id: id,
-				},
-				beforeSend: function () {
-					showLoading();
-				},
-				complete: function () {
-					hideLoading();
-				},
-				success: function (response) {
-					Swal.fire({
-						confirmButtonColor: "#3ab50d",
-						icon: "success",
-						title: `${response.message}`,
-					}).then((result) => {
-						$("#data-add-ons").DataTable().ajax.reload();
-					});
-				},
-				error: function (request, status, error) {
-					Swal.fire({
-						confirmButtonColor: "#3ab50d",
-						icon: "error",
-						title: `${status}`,
-						text: `${error}`,
-					});
-				},
-			});
-		}
-	});
-}
 $(document).ready(function(e){
     let filterValue = [];
         var table = $("#data-add-ons").DataTable({
@@ -107,7 +58,7 @@ $(document).ready(function(e){
 		serverSide: true,
 		order: [],
 		ajax: {
-			url: `{{route('show-add-ons')}}`,
+			url: `{{route('show-testimonials')}}`,
 			type: "POST",
 			data: function (d) {
                 d.filterValue = JSON.stringify(filterValue)
@@ -122,19 +73,14 @@ $(document).ready(function(e){
                 orderable: false, 
                 searchable: false
             },
-            {data: 'nama_add_on', name: 'nama_add_on'},
-            {data: 'hargaIDR', name: 'harga'},
-            {data: 'keterangan', name: 'keterangan',
+            {data: 'nama', name: 'nama'},
+            {data: 'testimonial_text', name: 'testimonial_text',
 				orderable: false, 
                 searchable: false,
 				render: function (data, type, full, meta) {
 					return "<div class='text-wrap width-300'>" + data + "</div>";
 				},
 			},
-			{data: 'statusbadge', name: 'statusbadge',
-                orderable: false, 
-                searchable: false
-            },
         ],
 		dom: "rtip",
 	});

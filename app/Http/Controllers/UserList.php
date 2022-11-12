@@ -9,8 +9,6 @@ use Yajra\DataTables\Facades\DataTables;
 class UserList extends Controller
 {
     //
-    public $data = array();
-
     public function __construct()
     {
         $this->data['controller'] = 'userlist';
