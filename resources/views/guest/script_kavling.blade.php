@@ -33,5 +33,38 @@
             }
             $("#jumlah-dipilih").html(selected);
         });
+        
+        $("#checkout").click(function(e){
+            const kavlings = JSON.stringify(kavlingSelected)
+            $.ajax({
+                type: "post",
+                url: `{{route('add-to-cart')}}`,
+                data: {
+                    kavlings: kavlings,
+                },
+                headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				},
+                processData: true,
+                // contentType: false,
+                // dataType: 'JSON',
+                beforeSend: function() {
+                    showLoading();
+                },
+                success: function(response) {
+                    location.href =  `{{route('checkout')}}`;                    
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    hideLoading();
+                    const response = jqXHR.responseJSON;
+                    Swal.fire({
+						confirmButtonColor: "#3ab50d",
+						icon: "error",
+						title: `${textStatus}`,
+						text: `${response.message}`,
+					});
+                }
+            });
+        })
     })
 </script>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AddOns;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\Checkout;
 use App\Http\Controllers\Kavlings;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
@@ -39,14 +41,15 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('guest.cart');
 })->name('cart');
-Route::get('/checkout', function () {
-    return view('guest.checkout');
-})->name('checkout');
-Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
+Route::get('/checkout', [Checkout::class, 'index'])->name('checkout');
 
+Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
 Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('sign-in');
 
+
+Route::post('/add-to-cart', [CartController::class, 'addtocart'])->name('add-to-cart');
+Route::get('/cartcontent', [CartController::class, 'cartcontent'])->name('cartcontent');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', function (Request $request) {

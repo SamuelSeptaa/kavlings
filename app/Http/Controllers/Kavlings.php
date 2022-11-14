@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
 use App\Models\Block;
 use App\Models\RowBlock;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ class Kavlings extends Controller
 
     public function index()
     {
+        Cart::clear();
         $row1 = RowBlock::with('blocks')->find(1);
         $row2 = RowBlock::with('blocks')->find(2);
         $row3 = RowBlock::with('blocks')->find(3);

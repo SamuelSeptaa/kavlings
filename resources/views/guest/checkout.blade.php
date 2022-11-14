@@ -1,4 +1,4 @@
-@extends('guest.index')
+@extends('layout.index')
 @section('content')
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
@@ -35,16 +35,54 @@
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <div class="billing-address-form">
-                                        <form action="index.html">
-                                            <p><input type="text" placeholder="Name"></p>
-                                            <p><input type="email" placeholder="Email"></p>
-                                            <p><input type="text" placeholder="Address"></p>
-                                            <p><input type="tel" placeholder="Phone"></p>
-                                            <p><textarea name="bill" id="bill" cols="30" rows="10"
-                                                    placeholder="Say Something"></textarea></p>
-                                        </form>
+                                    <div class="form-group">
+                                        <label for="email_pemesan">Email address</label>
+                                        <input type="text" class="form-control" id="email_pemesan" name="email_pemesan"
+                                            placeholder="Enter email">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="nama_pemesan">Nama</label>
+                                        <input type="text" class="form-control" id="nama_pemesan" name="nama_pemesan"
+                                            placeholder="Enter nama">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nomor_pemesan">Nomor HP</label>
+                                        <input type="text" class="form-control" id="nomor_pemesan" name="nomor_pemesan"
+                                            placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama_terhibah">Nama Terhibah (Opsional)</label>
+                                        <input type="text" class="form-control" id="nama_terhibah" name="nama_terhibah"
+                                            placeholder="Enter nama terhibah">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nomor_hp_terhibah">Nomor HP Terhibah (Opsional)</label>
+                                        <input type="text" class="form-control" id="nomor_hp_terhibah"
+                                            name="nomor_hp_terhibah" placeholder="Enter nomor hp terhibah">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card single-accordion">
+                            <div class="card-header" id="headingAddons">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseAddOns" aria-expanded="false"
+                                        aria-controls="collapseAddOns">
+                                        Add Ons
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseAddOns" class="collapse" aria-labelledby="headingAddons"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    @foreach ($addons as $a)
+                                    <input name="add_ons[]" type="checkbox" id="{{'addons_'.$a->id}}"
+                                        data-harga="{{$a->harga}}" data-name="{{$a->nama_add_on}}" value="{{$a->id}}">
+                                    <label for="{{'addons_'.$a->id}}">{{"$a->nama_add_on"}} -
+                                        {{currencyIDR($a->harga)}}/Kavling
+                                    </label>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -81,39 +119,24 @@
                             </tr>
                         </thead>
                         <tbody class="order-details-body">
+                            @foreach ($carts as $cart)
                             <tr>
-                                <td>Product</td>
-                                <td>Total</td>
+                                <td>{{$cart->name}}</td>
+                                <td>{{currencyIDR($cart->getPriceSum())}}</td>
                             </tr>
-                            <tr>
-                                <td>Strawberry</td>
-                                <td>$85.00</td>
-                            </tr>
-                            <tr>
-                                <td>Berry</td>
-                                <td>$70.00</td>
-                            </tr>
-                            <tr>
-                                <td>Lemon</td>
-                                <td>$35.00</td>
-                            </tr>
+                            @endforeach
                         </tbody>
-                        <tbody class="checkout-details">
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>$190</td>
-                            </tr>
-                            <tr>
-                                <td>Shipping</td>
-                                <td>$50</td>
-                            </tr>
+                        <tbody class="addons-details">
+
+                        </tbody>
+                        <tbody class="total">
                             <tr>
                                 <td>Total</td>
-                                <td>$240</td>
+                                <td id="total-harga">{{currencyIDR($total)}}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#" class="boxed-btn">Place Order</a>
+                    <button class="btn boxed-btn">Place Order</button>
                 </div>
             </div>
         </div>

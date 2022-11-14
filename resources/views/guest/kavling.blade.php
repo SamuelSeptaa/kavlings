@@ -188,8 +188,9 @@
         </div>
 
         <div class="row mt-5 justify-content-end">
-            <a href="{{route('kavling')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan
-                Sekarang (<span id="jumlah-dipilih">0</span>)</a>
+            <button href="{{route('kavling')}}" id="checkout" class="btn cart-btn"><i class="fas fa-shopping-cart"></i>
+                Pesan
+                Sekarang (<span id="jumlah-dipilih">0</span>)</button>
         </div>
     </div>
 </div>
