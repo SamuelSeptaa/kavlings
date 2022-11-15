@@ -17,7 +17,7 @@
 
 <!-- kavling section -->
 <div class="mt-150 mb-150">
-    <div class="container-fluid">
+    <div class="container">
         <div class="h6">Keterangan :</div>
         <div class="mb-3">
             <div class="d-flex align-items-center mb-2">
