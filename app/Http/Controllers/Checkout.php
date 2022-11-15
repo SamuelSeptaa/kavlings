@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
 use App\Models\AddOn;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use Cart;
 use Illuminate\Http\Request;
+use App\Mail\OrderNotification;
+use Illuminate\Support\Facades\Mail;
 
 class Checkout extends Controller
 {
     public function index()
     {
+
+        if (Cart::isEmpty())
+            return redirect()->route('kavling');
         $this->data['title']    = "Checkout";
         $this->data['carts']    = Cart::getContent();
         $this->data['addons']    = AddOn::where('status', 'ON')->get();
         $this->data['total']    = Cart::getSubTotal();
-
 
         $this->data['script']   = 'guest.script_checkout';
 
@@ -89,8 +93,8 @@ class Checkout extends Controller
                 $qty[] = $cartItems->count();
                 $price[] = $addons->harga;
             }
-
-
+        //Hapus isi cart;
+        Cart::clear();
         if ($data['metode_pembayaran'] == "TRANSFER") {
             $payment_detail = $this->createPaymentIpaymu($products, $qty, $price, $nomorInvoice, $data);
             if ($payment_detail['status']) {
@@ -99,7 +103,37 @@ class Checkout extends Controller
                         'url_payment'   => $payment_detail['url'],
                         'total'         => $total
                     ]);
+
+                $orderNew = Order::find($order->id);
+                Mail::to($data['email_pemesan'])->send(new OrderNotification($orderNew));
+
+                return response()->json([
+                    'message' => [
+                        'title' => "Berhasil",
+                        'body'  => "Berhasil membuat pesanan"
+                    ],
+                    'data'  => [
+                        'url_payment'   =>  $payment_detail['url']
+                    ]
+                ], 200);
             }
+        } else {
+            $orderNew = Order::find($order->id);
+            Order::where('id', $order->id)
+                ->update([
+                    'total'         => $total
+                ]);
+            $orderNew = Order::find($order->id);
+            Mail::to($data['email_pemesan'])->send(new OrderNotification($orderNew));
+            return response()->json([
+                'message' => [
+                    'title' => "Berhasil",
+                    'body'  => "Berhasil membuat pesanan"
+                ],
+                'data'  => [
+                    'url_payment'   =>  null
+                ]
+            ], 200);
         }
     }
 

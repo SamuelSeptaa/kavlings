@@ -22,7 +22,8 @@
                             </li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="{{route('checkout')}}"><i
+                                            class="fas fa-shopping-cart"></i></a>
                                 </div>
                             </li>
                         </ul>

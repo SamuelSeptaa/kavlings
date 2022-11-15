@@ -85,18 +85,31 @@
                 },
                 success: function(response) {
                     hideLoading();
+                        Swal.fire({
+                        title: `${response.message.title}`,
+                        text:`${response.message.body}`,
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Ok',
+                        }).then((result) => {
+                            if(response.data.url_payment != null){
+                                location.href = `${response.data.url_payment}`
+                            }
+                            else{
+                                location.href = `{{route('index')}}`
+                            }
+                        })
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     hideLoading();
                     const response = jqXHR.responseJSON;
                     if(jqXHR.status == 422){
                         let result = Object.entries(response.errors);
-                        console.log(result);
                         result.forEach(function([field, message], index) {
                             $(`.invalid-feedback[for="${field}"]`).html(message);
                             $(`#${field}`).addClass('is-invalid');
                         });
-                        
+                        $("button[data-target='#collapseOne']").trigger('click');
                     }
                 }
             });
