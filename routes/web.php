@@ -42,6 +42,7 @@ Route::get('/cart', function () {
     return view('guest.cart');
 })->name('cart');
 Route::get('/checkout', [Checkout::class, 'index'])->name('checkout');
+Route::post('/place-order', [Checkout::class, 'placeOrder'])->name('place-order');
 
 Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
@@ -49,6 +50,12 @@ Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('s
 
 
 Route::post('/add-to-cart', [CartController::class, 'addtocart'])->name('add-to-cart');
+
+
+Route::post('/payment-notify', function () {
+    return "aaa";
+})->name('payment-notify');
+
 Route::get('/cartcontent', [CartController::class, 'cartcontent'])->name('cartcontent');
 
 Route::middleware(['auth'])->group(function () {
@@ -94,3 +101,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/testimonials/update', [Testimonials::class, 'update'])->name('update-testimonials');
     Route::post('/testimonials/delete', [Testimonials::class, 'destroy'])->name('delete-testimonials');
 });
+
+
+Route::get('/test-send-email', [Controller::class, 'test']);

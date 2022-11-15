@@ -27,41 +27,46 @@
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Billing Address
+                                        Billing Detail
                                     </button>
                                 </h5>
                             </div>
-
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="email_pemesan">Email address</label>
-                                        <input type="text" class="form-control" id="email_pemesan" name="email_pemesan"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nama_pemesan">Nama</label>
-                                        <input type="text" class="form-control" id="nama_pemesan" name="nama_pemesan"
-                                            placeholder="Enter nama">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nomor_pemesan">Nomor HP</label>
-                                        <input type="text" class="form-control" id="nomor_pemesan" name="nomor_pemesan"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nama_terhibah">Nama Terhibah (Opsional)</label>
-                                        <input type="text" class="form-control" id="nama_terhibah" name="nama_terhibah"
-                                            placeholder="Enter nama terhibah">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nomor_hp_terhibah">Nomor HP Terhibah (Opsional)</label>
-                                        <input type="text" class="form-control" id="nomor_hp_terhibah"
-                                            name="nomor_hp_terhibah" placeholder="Enter nomor hp terhibah">
+                            <form id="form-place-order">
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="email_pemesan">Email address</label>
+                                            <input type="text" class="form-control" id="email_pemesan"
+                                                name="email_pemesan" placeholder="Enter email">
+                                            <div class="invalid-feedback" for="email_pemesan"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama_pemesan">Nama</label>
+                                            <input type="text" class="form-control" id="nama_pemesan"
+                                                name="nama_pemesan" placeholder="Enter nama">
+                                            <div class="invalid-feedback" for="nama_pemesan"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nomor_pemesan">Nomor HP</label>
+                                            <input type="text" class="form-control" id="nomor_pemesan"
+                                                name="nomor_pemesan" placeholder="Enter nomor HP">
+                                            <div class="invalid-feedback" for="nomor_pemesan"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama_terhibah">Nama Terhibah (Opsional)</label>
+                                            <input type="text" class="form-control" id="nama_terhibah"
+                                                name="nama_terhibah" placeholder="Enter nama terhibah">
+                                            <div class="invalid-feedback" for="nama_terhibah"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nomor_hp_terhibah">Nomor HP Terhibah (Opsional)</label>
+                                            <input type="text" class="form-control" id="nomor_hp_terhibah"
+                                                name="nomor_hp_terhibah" placeholder="Enter nomor hp terhibah">
+                                            <div class="invalid-feedback" for="nomor_hp_terhibah"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         <div class="card single-accordion">
                             <div class="card-header" id="headingAddons">
@@ -86,6 +91,7 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
                         <div class="card single-accordion">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
@@ -99,7 +105,14 @@
                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="shipping-address-form">
-                                        <p>Your shipping address form is here.</p>
+                                        <div class="d-flex">
+                                            <button type="button"
+                                                class="btn btn-outline-info mr-1 my-1 btn-sm btn-metode-pembayaran active"
+                                                data-metode="TRANSFER">TRANSFER</button>
+                                            <button type="button"
+                                                class="btn btn-outline-info mr-1 my-1 btn-sm btn-metode-pembayaran"
+                                                data-metode="CASH">CASH</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +149,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn boxed-btn">Place Order</button>
+                    <button id="place-order" class="btn boxed-btn mt-2">Place Order</button>
                 </div>
             </div>
         </div>

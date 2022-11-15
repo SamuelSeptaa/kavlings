@@ -17,9 +17,10 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('nomor_invoice');
             $table->integer('total');
-            $table->enum('status', ['BARU', 'PEMBAYARAN', 'SELESAI', 'BATAL']);
-            $table->enum('status_pembayaran', ['PENDING', 'SUCCESS', 'FAILED']);
-            $table->dateTime('tanggal_pembayaran');
+            $table->enum('status', ['BARU', 'PEMBAYARAN', 'SELESAI', 'BATAL'])->default('BARU');
+            $table->enum('metode_pembayaran', ['TRANSFER', 'CASH']);
+            $table->enum('status_pembayaran', ['PENDING', 'SUCCESS', 'FAILED'])->default('PENDING');
+            $table->dateTime('tanggal_pembayaran')->nullable();
             $table->string('nama_pemesan');
             $table->string('email_pemesan');
             $table->string('nomor_pemesan');

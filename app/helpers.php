@@ -49,3 +49,24 @@ function get_enum_values($table, $field)
     $enum = explode("','", $matches[1]);
     return $enum;
 }
+
+function lastNomor($prefix, $table, $column)
+{
+
+    $result = DB::table('orders')
+        ->select($column)
+        ->orderBy($column, 'desc')
+        ->where($column, 'like', "%$prefix%")->first();
+    if ($result != null) {
+        return intval(str_replace($prefix, "", $result->$column));
+    }
+    return 0;
+}
+
+function generateOrderNumber()
+{
+    $prefix = 'KAV' . date('y') . date('m');
+    $last_code = lastNomor($prefix, 'order', 'nomor_invoice');
+    $new_code = str_pad(($last_code + 1), 4, "0", STR_PAD_LEFT);
+    return $prefix . $new_code;
+}

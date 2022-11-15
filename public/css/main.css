@@ -2949,6 +2949,13 @@ input[type="checkbox"]:checked + label:before {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+.btn-metode-pembayaran{
+  display: inline-block;
+}
+.btn-metode-pembayaran.active{
+  background-color: #248AFD;
+  color: white;
+}
 
 
 

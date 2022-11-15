@@ -16,6 +16,7 @@ class OrderDetail extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id');
+            $table->foreignId('kavling_id')->nullable();
             $table->string('nama');
             $table->integer('jumlah');
             $table->integer('subtotal');
