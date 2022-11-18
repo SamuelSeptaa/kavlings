@@ -25,7 +25,7 @@
                     </div>
                     @endif
                     <div class="table-responsive mt-2">
-                        <table class="table table-striped" id="data-add-ons" style="width: 100%">
+                        <table class="table table-striped" id="data-testimonials" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th>

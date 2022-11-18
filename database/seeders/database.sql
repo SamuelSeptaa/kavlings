@@ -12,6 +12,14 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Dumping data for table kavlings_app.add_ons: ~2 rows (approximately)
+DELETE FROM `add_ons`;
+/*!40000 ALTER TABLE `add_ons` DISABLE KEYS */;
+INSERT INTO `add_ons` (`id`, `nama_add_on`, `harga`, `keterangan`, `status`, `created_at`, `updated_at`) VALUES
+	(1, 'Keramik', 200000.00, 'Keramik', 'ON', NULL, NULL),
+	(2, 'Semen', 200000.00, 'Semen', 'ON', NULL, NULL);
+/*!40000 ALTER TABLE `add_ons` ENABLE KEYS */;
+
 -- Dumping data for table kavlings_app.blocks: ~15 rows (approximately)
 DELETE FROM `blocks`;
 /*!40000 ALTER TABLE `blocks` DISABLE KEYS */;
@@ -38,7 +46,7 @@ DELETE FROM `failed_jobs`;
 /*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.kavlings: ~0 rows (approximately)
+-- Dumping data for table kavlings_app.kavlings: ~3.858 rows (approximately)
 DELETE FROM `kavlings`;
 /*!40000 ALTER TABLE `kavlings` DISABLE KEYS */;
 INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`, `updated_at`) VALUES
@@ -3915,6 +3923,63 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(7, '2022_11_10_055423_create_row_blocks_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
+-- Dumping data for table kavlings_app.orders: ~8 rows (approximately)
+DELETE FROM `orders`;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`id`, `nomor_invoice`, `total`, `status`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`, `nama_pemesan`, `email_pemesan`, `nomor_pemesan`, `nama_terhibah`, `nomor_hp_terhibah`, `url_payment`, `created_at`, `updated_at`) VALUES
+	(1, 'KAV22110001', 5700000, 'BARU', 'TRANSFER', 'PENDING', NULL, 'samuel septa', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/28F2750E-87BB-4765-A90B-ED5C674B42C0', '2022-11-15 02:33:09', '2022-11-15 02:33:10'),
+	(2, 'KAV22110002', 5700000, 'BARU', 'TRANSFER', 'PENDING', NULL, 'samuel septa', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/4ADC5301-4D5A-44FB-A96F-E1287C9942BE', '2022-11-15 02:34:24', '2022-11-15 02:34:25'),
+	(3, 'KAV22110003', 3400000, 'BARU', 'TRANSFER', 'PENDING', NULL, 'Samuel Septa', 'samueltest@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/E60763F7-55BC-45AE-9EE1-DC3643F90F9D', '2022-11-15 09:28:15', '2022-11-15 09:28:16'),
+	(4, 'KAV22110004', 3400000, 'BARU', 'TRANSFER', 'PENDING', NULL, 'Samuel Septa', 'samueltest@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/CA552E0A-1C65-49BB-813B-113A170F2C5A', '2022-11-15 09:31:12', '2022-11-15 09:31:15'),
+	(5, 'KAV22110005', 3800000, 'BARU', 'TRANSFER', 'PENDING', NULL, 'abcedee', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/FB9AEF70-1F46-4FC8-AD50-E47425762726', '2022-11-15 09:32:39', '2022-11-15 09:32:42'),
+	(6, 'KAV22110006', 3800000, 'BARU', 'CASH', 'PENDING', NULL, 'abcedee', 'tylooo186@gmail.com', '082252961155', NULL, NULL, NULL, '2022-11-15 09:33:11', '2022-11-15 09:33:11'),
+	(7, 'KAV22110007', 3800000, 'BARU', 'CASH', 'PENDING', NULL, 'abcedee', 'tylooo186@gmail.com', '082252961155', NULL, NULL, NULL, '2022-11-15 09:34:31', '2022-11-15 09:34:31'),
+	(8, 'KAV22110008', 3800000, 'BARU', 'CASH', 'PENDING', NULL, 'abcedee', 'tylooo186@gmail.com', '082252961155', NULL, NULL, NULL, '2022-11-15 09:35:11', '2022-11-15 09:35:11'),
+	(9, 'KAV22110009', 3800000, 'BARU', 'TRANSFER', 'PENDING', NULL, 'abcedee', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/FC48E008-F57F-40F3-B421-83734224417C', '2022-11-15 09:43:36', '2022-11-15 09:43:38');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+
+-- Dumping data for table kavlings_app.order_details: ~32 rows (approximately)
+DELETE FROM `order_details`;
+/*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
+INSERT INTO `order_details` (`id`, `order_id`, `kavling_id`, `nama`, `jumlah`, `subtotal`, `created_at`, `updated_at`) VALUES
+	(1, 1, NULL, 'Keramik', 3, 600000, '2022-11-15 02:33:09', '2022-11-15 02:33:09'),
+	(2, 1, NULL, 'Semen', 3, 600000, '2022-11-15 02:33:09', '2022-11-15 02:33:09'),
+	(3, 1, 629, 'A-35', 1, 1500000, '2022-11-15 02:33:09', '2022-11-15 02:33:09'),
+	(4, 1, 630, 'A-36', 1, 1500000, '2022-11-15 02:33:09', '2022-11-15 02:33:09'),
+	(5, 1, 999, 'B1-131', 1, 1500000, '2022-11-15 02:33:09', '2022-11-15 02:33:09'),
+	(6, 2, 629, 'A-35', 1, 1500000, '2022-11-15 02:34:24', '2022-11-15 02:34:24'),
+	(7, 2, 630, 'A-36', 1, 1500000, '2022-11-15 02:34:24', '2022-11-15 02:34:24'),
+	(8, 2, 999, 'B1-131', 1, 1500000, '2022-11-15 02:34:24', '2022-11-15 02:34:24'),
+	(9, 2, NULL, 'Keramik', 3, 600000, '2022-11-15 02:34:24', '2022-11-15 02:34:24'),
+	(10, 2, NULL, 'Semen', 3, 600000, '2022-11-15 02:34:24', '2022-11-15 02:34:24'),
+	(11, 3, 627, 'A-33', 1, 1500000, '2022-11-15 09:28:15', '2022-11-15 09:28:15'),
+	(12, 3, 628, 'A-34', 1, 1500000, '2022-11-15 09:28:15', '2022-11-15 09:28:15'),
+	(13, 3, NULL, 'Keramik', 2, 400000, '2022-11-15 09:28:15', '2022-11-15 09:28:15'),
+	(14, 4, 627, 'A-33', 1, 1500000, '2022-11-15 09:31:12', '2022-11-15 09:31:12'),
+	(15, 4, 628, 'A-34', 1, 1500000, '2022-11-15 09:31:12', '2022-11-15 09:31:12'),
+	(16, 4, NULL, 'Keramik', 2, 400000, '2022-11-15 09:31:12', '2022-11-15 09:31:12'),
+	(17, 5, 627, 'A-33', 1, 1500000, '2022-11-15 09:32:39', '2022-11-15 09:32:39'),
+	(18, 5, 628, 'A-34', 1, 1500000, '2022-11-15 09:32:39', '2022-11-15 09:32:39'),
+	(19, 5, NULL, 'Keramik', 2, 400000, '2022-11-15 09:32:39', '2022-11-15 09:32:39'),
+	(20, 5, NULL, 'Semen', 2, 400000, '2022-11-15 09:32:39', '2022-11-15 09:32:39'),
+	(21, 6, 627, 'A-33', 1, 1500000, '2022-11-15 09:33:11', '2022-11-15 09:33:11'),
+	(22, 6, 628, 'A-34', 1, 1500000, '2022-11-15 09:33:11', '2022-11-15 09:33:11'),
+	(23, 6, NULL, 'Keramik', 2, 400000, '2022-11-15 09:33:11', '2022-11-15 09:33:11'),
+	(24, 6, NULL, 'Semen', 2, 400000, '2022-11-15 09:33:11', '2022-11-15 09:33:11'),
+	(25, 7, 598, 'A-4', 1, 1500000, '2022-11-15 09:34:31', '2022-11-15 09:34:31'),
+	(26, 7, 599, 'A-5', 1, 1500000, '2022-11-15 09:34:31', '2022-11-15 09:34:31'),
+	(27, 7, NULL, 'Keramik', 2, 400000, '2022-11-15 09:34:31', '2022-11-15 09:34:31'),
+	(28, 7, NULL, 'Semen', 2, 400000, '2022-11-15 09:34:31', '2022-11-15 09:34:31'),
+	(29, 8, 598, 'A-4', 1, 1500000, '2022-11-15 09:35:11', '2022-11-15 09:35:11'),
+	(30, 8, 599, 'A-5', 1, 1500000, '2022-11-15 09:35:11', '2022-11-15 09:35:11'),
+	(31, 8, NULL, 'Keramik', 2, 400000, '2022-11-15 09:35:11', '2022-11-15 09:35:11'),
+	(32, 8, NULL, 'Semen', 2, 400000, '2022-11-15 09:35:11', '2022-11-15 09:35:11'),
+	(33, 9, 598, 'A-4', 1, 1500000, '2022-11-15 09:43:36', '2022-11-15 09:43:36'),
+	(34, 9, 599, 'A-5', 1, 1500000, '2022-11-15 09:43:36', '2022-11-15 09:43:36'),
+	(35, 9, NULL, 'Keramik', 2, 400000, '2022-11-15 09:43:36', '2022-11-15 09:43:36'),
+	(36, 9, NULL, 'Semen', 2, 400000, '2022-11-15 09:43:36', '2022-11-15 09:43:36');
+/*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
+
 -- Dumping data for table kavlings_app.password_resets: ~0 rows (approximately)
 DELETE FROM `password_resets`;
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
@@ -3936,7 +4001,12 @@ INSERT INTO `row_blocks` (`id`, `rowname`, `created_at`, `updated_at`) VALUES
 	(5, '5', NULL, NULL);
 /*!40000 ALTER TABLE `row_blocks` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.users: ~1 rows (approximately)
+-- Dumping data for table kavlings_app.testimonials: ~0 rows (approximately)
+DELETE FROM `testimonials`;
+/*!40000 ALTER TABLE `testimonials` DISABLE KEYS */;
+/*!40000 ALTER TABLE `testimonials` ENABLE KEYS */;
+
+-- Dumping data for table kavlings_app.users: ~0 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES

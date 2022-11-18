@@ -19,6 +19,12 @@
                 <span class="menu-title">Add On List</span>
             </a>
         </li>
+        <li class="nav-item @if ($controller== 'orders') active @endif">
+            <a class="nav-link" href="{{route('orders')}}">
+                <i class="icon-archive menu-icon"></i>
+                <span class="menu-title">List Pesanan</span>
+            </a>
+        </li>
         <li class="nav-item @if ($controller== 'testimonials') active @endif">
             <a class="nav-link" href="{{route('testimonials')}}">
                 <i class="icon-paper-clip menu-icon"></i>

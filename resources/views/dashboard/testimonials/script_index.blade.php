@@ -33,7 +33,7 @@
 							icon: "success",
 							title: `${response.message}`,
 						}).then((result) => {
-							$("#data-add-ons").DataTable().ajax.reload();
+							$("#data-testimonials").DataTable().ajax.reload();
 						});
 					},
 					error: function (request, status, error) {
@@ -51,7 +51,7 @@
 
 $(document).ready(function(e){
     let filterValue = [];
-        var table = $("#data-add-ons").DataTable({
+        var table = $("#data-testimonials").DataTable({
 		pageLength: 30,
 		scrollX: true,
 		processing: true,
@@ -91,6 +91,12 @@ $(document).ready(function(e){
 		} else {
 			hideLoading();
 		}
+	});
+	
+	$('#data-testimonials').on( 'page.dt', function () {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 1000);        
 	});
 
 	$("#search").keyup(

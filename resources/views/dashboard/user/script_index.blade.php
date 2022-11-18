@@ -73,6 +73,12 @@ function deleteData(id) {
 		dom: "rtip",
 	});
 
+	$('#data-user').on( 'page.dt', function () {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 1000);        
+	});
+
 	table.on("processing.dt", function (e, settings, processing) {
 		if (processing) {
 			showLoading();

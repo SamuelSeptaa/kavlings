@@ -101,7 +101,6 @@
 $(document).ready(function(e){
 
     let filterValue = [];
-
         var table = $("#data-kavling").DataTable({
 		pageLength: 30,
 		scrollX: true,
@@ -140,6 +139,12 @@ $(document).ready(function(e){
 		} else {
 			hideLoading();
 		}
+	});
+
+	$('#data-kavling').on( 'page.dt', function () {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 1000);        
 	});
 
 	$("#search").keyup(

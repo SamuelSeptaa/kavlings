@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Index;
 use App\Http\Controllers\KavlingController;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Testimonials;
 use App\Http\Controllers\UserList;
 use Illuminate\Support\Facades\Auth;
@@ -100,6 +101,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/testimonials/detail', [Testimonials::class, 'detail'])->name('detail-testimonials');
     Route::post('/testimonials/update', [Testimonials::class, 'update'])->name('update-testimonials');
     Route::post('/testimonials/delete', [Testimonials::class, 'destroy'])->name('delete-testimonials');
+
+
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+    Route::post('/orders/show', [OrderController::class, 'show'])->name('show-orders');
 });
 
 

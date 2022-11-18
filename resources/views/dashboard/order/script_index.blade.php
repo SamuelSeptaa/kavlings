@@ -1,9 +1,9 @@
 <script>
 	//? function saat button block pada datatable di klik. nonaktive dengan ajax
-	function nonactivingAddOns(id) {
+	function nonacitiveKavling(id) {
 		Swal.fire({
 			icon: "question",
-			title: "Nonaktifkan add ons yang dipilih?",
+			title: "Nonaktifkan kavling yang dipilih?",
 			showCancelButton: true,
 			cancelButtonText: "Batal",
 			confirmButtonText: "Ya",
@@ -14,7 +14,7 @@
 				$.ajax({
 					type: "post",
 					dataType: "json",
-					url: "{{route('nonactiving-add-ons')}}",
+					url: "{{route('nonactive-kavling')}}",
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
@@ -33,7 +33,7 @@
 							icon: "success",
 							title: `${response.message}`,
 						}).then((result) => {
-							$("#data-add-ons").DataTable().ajax.reload();
+							$("#data-kavling").DataTable().ajax.reload();
 						});
 					},
 					error: function (request, status, error) {
@@ -48,66 +48,18 @@
 			}
 		});
 	}
-
-	//? function saat button acvive pada datatable di klik. aktive dengan ajax
-	function activingAddOns(id) {
-	Swal.fire({
-		icon: "question",
-		title: "Aktifkan Kembali add on yang dipilih?",
-		showCancelButton: true,
-		cancelButtonText: "Batal",
-		confirmButtonText: "Ya",
-		reverseButtons: true,
-	}).then((result) => {
-		if (result.isConfirmed) {
-			showLoading();
-			$.ajax({
-				type: "post",
-				dataType: "json",
-				url: "{{route('activing-add-ons')}}",
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				},
-				data: {
-					id: id,
-				},
-				beforeSend: function () {
-					showLoading();
-				},
-				complete: function () {
-					hideLoading();
-				},
-				success: function (response) {
-					Swal.fire({
-						confirmButtonColor: "#3ab50d",
-						icon: "success",
-						title: `${response.message}`,
-					}).then((result) => {
-						$("#data-add-ons").DataTable().ajax.reload();
-					});
-				},
-				error: function (request, status, error) {
-					Swal.fire({
-						confirmButtonColor: "#3ab50d",
-						icon: "error",
-						title: `${status}`,
-						text: `${error}`,
-					});
-				},
-			});
-		}
-	});
-}
 $(document).ready(function(e){
+
     let filterValue = [];
-        var table = $("#data-add-ons").DataTable({
+
+        var table = $("#data-orders").DataTable({
 		pageLength: 30,
 		scrollX: true,
 		processing: true,
 		serverSide: true,
 		order: [],
 		ajax: {
-			url: `{{route('show-add-ons')}}`,
+			url: `{{route('show-orders')}}`,
 			type: "POST",
 			data: function (d) {
                 d.filterValue = JSON.stringify(filterValue)
@@ -120,26 +72,21 @@ $(document).ready(function(e){
         columns: [
             {data: 'action', name: 'action',
                 orderable: false, 
-                searchable: false
             },
-            {data: 'nama_add_on', name: 'nama_add_on'},
-            {data: 'hargaIDR', name: 'harga'},
-            {data: 'keterangan', name: 'keterangan',
-				orderable: false, 
-                searchable: false,
-				render: function (data, type, full, meta) {
-					return "<div class='text-wrap width-300'>" + data + "</div>";
-				},
-			},
-			{data: 'statusbadge', name: 'statusbadge',
-                orderable: false, 
-                searchable: false
-            },
+            {data: 'tanggalPesanan', name: 'created_at'},
+            {data: 'statusOrderBadge', name: 'statusOrderBadge', orderable: false,className: "text-center" },
+            {data: 'nomor_invoice', name: 'nomor_invoice', orderable: false, className: "text-center"},
+            {data: 'nama_pemesan', name: 'nama_pemesan'},
+            {data: 'kontak', name: 'kontak', orderable: false},
+            {data: 'totalIDR', name: 'total'},
+            {data: 'metodePembayaran', name: 'metodePembayaran', orderable:false},
+            {data: 'statusPembayaranBadge', name: 'statusPembayaranBadge', orderable:false},
         ],
 		dom: "rtip",
 	});
 
-	$('#data-add-ons').on( 'page.dt', function () {
+
+	$('#data-orders').on( 'page.dt', function () {
 		$('html, body').animate({
 			scrollTop: 0
 		}, 1000);        
@@ -162,7 +109,7 @@ $(document).ready(function(e){
 	function resetFilterStatus() {
 		filterValue = []
 		toggleFilterStatus(".btn-filter", false)
-		toggleFilterStatus(".btn-filter[data-block_id='all']", true)
+		toggleFilterStatus(".btn-filter[data-status='ALL']", true)
 		// table.column(10).search(JSON.stringify(filterValue))
 	}
 
@@ -176,11 +123,11 @@ $(document).ready(function(e){
 
 	$(".btn-filter").click(function(e) {
             e.preventDefault();
-            let value = $(this).data('block_id');
-            if (value == "all") {
+            let value = $(this).data('status');
+            if (value == "ALL") {
                 resetFilterStatus()
             } else {
-                toggleFilterStatus(".btn-filter[data-block_id='all']", false)
+                toggleFilterStatus(".btn-filter[data-status='ALL']", false)
                 let filterExist = filterValue.includes(value)
                 if (!filterExist) {
                     toggleFilterStatus(this, true)
@@ -195,7 +142,7 @@ $(document).ready(function(e){
             }
 
             if (filterValue.length == 0) {
-                toggleFilterStatus(".btn-filter[data-block_id='all']", true)
+                toggleFilterStatus(".btn-filter[data-status='all']", true)
             }
             table.ajax.reload();
 
