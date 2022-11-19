@@ -109,6 +109,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders/add', [OrderController::class, 'add'])->name('add-orders');
     Route::post('/orders/store', [OrderController::class, 'store'])->name('store-orders');
 });
-
-
-Route::get('/test-send-email', [Controller::class, 'test']);

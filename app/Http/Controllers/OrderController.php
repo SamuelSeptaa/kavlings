@@ -112,20 +112,6 @@ class OrderController extends Controller
         $data['tanggal_pembayaran'] = date('Y-m-d H:i:s');
         $order = Order::create($data);
 
-        if ($request->add_on_list != null)
-            foreach ($request->add_on_list as $addons_id) {
-                $add_ons = AddOn::find($addons_id);
-                $total += $add_ons->harga * $total_kavling;
-                OrderDetail::create(
-                    [
-                        'order_id'      => $order->id,
-                        'nama'          => $add_ons->nama_add_on,
-                        'jumlah'        => $total_kavling,
-                        'subtotal'      => $add_ons->harga * $total_kavling,
-                    ]
-                );
-            }
-
         foreach ($request->kavling_list as $kavling_id) {
             $kavling = Kavling::find($kavling_id);
             OrderDetail::create(
@@ -140,6 +126,19 @@ class OrderController extends Controller
             Kavling::where('id', $kavling->id)
                 ->update(['status'  => 'UNAVAILABLE']);
         }
+        if ($request->add_on_list != null)
+            foreach ($request->add_on_list as $addons_id) {
+                $add_ons = AddOn::find($addons_id);
+                $total += $add_ons->harga * $total_kavling;
+                OrderDetail::create(
+                    [
+                        'order_id'      => $order->id,
+                        'nama'          => $add_ons->nama_add_on,
+                        'jumlah'        => $total_kavling,
+                        'subtotal'      => $add_ons->harga * $total_kavling,
+                    ]
+                );
+            }
 
         Order::where('id', $order->id)
             ->update([
