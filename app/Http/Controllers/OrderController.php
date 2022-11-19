@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Mail\PaymentSuccess;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class OrderController extends Controller
@@ -27,6 +29,15 @@ class OrderController extends Controller
         return view('dashboard.order.index', $this->data);
     }
 
+    public function add()
+    {
+        $forms = [
+            array('nama', 'text', 'Nama'),
+            array('testimonial_text', 'textarea', 'Teks Testimonial')
+        ];
+        $this->data['title']        = "Tambah Order";
+        $this->data['forms']        = $forms;
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +62,7 @@ class OrderController extends Controller
         return DataTables::of($query)
             ->addColumn('action', function ($query) {
                 return '
-                    <a class="btn btn-primary icons-action" href="' . route('detail-add-ons', "orderid=$query->id") . '"><i class="mdi mdi-eye"></i></a>
+                    <a class="btn btn-primary icons-action" href="' . route('detail-orders', "orderid=$query->id") . '"><i class="mdi mdi-eye"></i></a>
                 ';
             })
             ->addColumn('statusOrderBadge', function ($query) {
@@ -119,6 +130,17 @@ class OrderController extends Controller
             ->make();
     }
 
+
+    public function detail(Request $request)
+    {
+        if (!$request->orderid) return redirect()->route('eror404');
+        $order = Order::findOrFail($request->orderid);
+
+        $this->data['order']        = $order;
+        $this->data['title']        = "Detail Pesanan Nomor $order->nomor_invoice";
+
+        return view('dashboard.order.detail', $this->data);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -140,5 +162,20 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function verifikasiCash(Request $request)
+    {
+        $order = Order::findOrFail($request->orderid);
+
+        Order::where('id', $request->orderid)
+            ->update([
+                'status_pembayaran'     => 'SUCCESS',
+                'tanggal_pembayaran'    => date('Y-m-d H:i:s'),
+                'status'                => 'SELESAI'
+            ]);
+
+        Mail::to($order->email_pemesan)->send(new PaymentSuccess($order));
+        return redirect()->route('orders')->with('success', "Pesanan dengan nomor Invoice $order->nomor_invoice berhasil diverifikasi");
     }
 }

@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use App\Mail\OrderNotification;
+use App\Models\Kavling;
 use Illuminate\Support\Facades\Mail;
 
 class Checkout extends Controller
@@ -74,6 +75,9 @@ class Checkout extends Controller
             $products[] = "Kavling - $cart->name";
             $qty[] = 1;
             $price[] = $cart->price;
+
+            Kavling::where('id', $cart->id)
+                ->update(['status'  => 'UNAVAILABLE']);
         }
 
         if ($request->add_ons != null)
@@ -101,7 +105,8 @@ class Checkout extends Controller
                 Order::where('id', $order->id)
                     ->update([
                         'url_payment'   => $payment_detail['url'],
-                        'total'         => $total
+                        'total'         => $total,
+                        'status'        => 'PEMBAYARAN'
                     ]);
 
                 $orderNew = Order::find($order->id);

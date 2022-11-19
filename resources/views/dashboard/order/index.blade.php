@@ -5,8 +5,11 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">
-                    Kavling List
+                    {{$title}}
                 </h4>
+                <div class="row mb-3 justify-content-end pr-3">
+                    <a href="{{route('add-orders')}}" class="btn btn-primary">Tambah</a>
+                </div>
                 <div class="row justify-content-end">
                     <div class="col-lg-6 col-md-8 col-sm-12 row">
                         <label class="col-sm-3 col-form-label">Search</label>

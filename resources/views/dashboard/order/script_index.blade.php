@@ -57,7 +57,7 @@ $(document).ready(function(e){
 		scrollX: true,
 		processing: true,
 		serverSide: true,
-		order: [],
+		order: [[1, 'desc']],
 		ajax: {
 			url: `{{route('show-orders')}}`,
 			type: "POST",

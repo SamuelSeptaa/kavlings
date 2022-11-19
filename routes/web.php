@@ -10,6 +10,7 @@ use App\Http\Controllers\Index;
 use App\Http\Controllers\KavlingController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Payment;
 use App\Http\Controllers\Testimonials;
 use App\Http\Controllers\UserList;
 use Illuminate\Support\Facades\Auth;
@@ -53,9 +54,7 @@ Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('s
 Route::post('/add-to-cart', [CartController::class, 'addtocart'])->name('add-to-cart');
 
 
-Route::post('/payment-notify', function () {
-    return "aaa";
-})->name('payment-notify');
+Route::post('/payment-notify', [Payment::class, 'index'])->name('payment-notify');
 
 Route::get('/cartcontent', [CartController::class, 'cartcontent'])->name('cartcontent');
 
@@ -105,6 +104,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');
     Route::post('/orders/show', [OrderController::class, 'show'])->name('show-orders');
+    Route::get('/orders/detail', [OrderController::class, 'detail'])->name('detail-orders');
+    Route::post('/orders/verifikasi-cash', [OrderController::class, 'verifikasiCash'])->name('verifikasi-cash');
+    Route::get('/orders/add', [OrderController::class, 'add'])->name('add-orders');
 });
 
 
