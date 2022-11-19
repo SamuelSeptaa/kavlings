@@ -28,6 +28,9 @@ function debounce(func, wait, immediate) {
 $(".select2").select2({
     placeholder: "Pilih Salah Satu",
 });
+$(".select2multiple").select2({
+    placeholder: "Cari dan Pilih",
+});
 
 $(".yearpicker").datepicker({
     format: "yyyy",

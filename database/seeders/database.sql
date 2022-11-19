@@ -17,7 +17,7 @@ DELETE FROM `add_ons`;
 /*!40000 ALTER TABLE `add_ons` DISABLE KEYS */;
 INSERT INTO `add_ons` (`id`, `nama_add_on`, `harga`, `keterangan`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Keramik', 200000.00, 'Keramik', 'ON', NULL, NULL),
-	(2, 'Semen', 200000.00, 'Semen', 'OFF', NULL, '2022-11-18 04:13:45');
+	(2, 'Semen', 200000.00, 'Semen', 'ON', NULL, '2022-11-19 08:00:12');
 /*!40000 ALTER TABLE `add_ons` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.blocks: ~15 rows (approximately)
@@ -3923,15 +3923,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(7, '2022_11_10_055423_create_row_blocks_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.orders: ~0 rows (approximately)
+-- Dumping data for table kavlings_app.orders: ~2 rows (approximately)
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`id`, `nomor_invoice`, `total`, `status`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`, `nama_pemesan`, `email_pemesan`, `nomor_pemesan`, `nama_terhibah`, `nomor_hp_terhibah`, `url_payment`, `created_at`, `updated_at`) VALUES
 	(1, 'KAV22110001', 5100000, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-11-19 07:27:10', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/F1A565CF-0A10-4A22-9C46-049200E8FF38', '2022-11-19 07:26:23', '2022-11-19 07:27:14'),
-	(2, 'KAV22110002', 4500000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 07:52:55', 'Mia Grace', 'tylooo186@gmail.com', '08123456789', NULL, NULL, NULL, '2022-11-19 07:35:42', '2022-11-19 07:52:55');
+	(2, 'KAV22110002', 4500000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 07:52:55', 'Mia Grace', 'tylooo186@gmail.com', '08123456789', NULL, NULL, NULL, '2022-11-19 07:35:42', '2022-11-19 07:52:55'),
+	(6, 'KAV22110003', 5100000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 12:14:05', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, NULL, '2022-11-19 12:14:05', '2022-11-19 12:14:05');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.order_details: ~0 rows (approximately)
+-- Dumping data for table kavlings_app.order_details: ~7 rows (approximately)
 DELETE FROM `order_details`;
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
 INSERT INTO `order_details` (`id`, `order_id`, `kavling_id`, `nama`, `jumlah`, `subtotal`, `created_at`, `updated_at`) VALUES
@@ -3941,7 +3942,11 @@ INSERT INTO `order_details` (`id`, `order_id`, `kavling_id`, `nama`, `jumlah`, `
 	(4, 1, NULL, 'Keramik', 3, 600000, '2022-11-19 07:26:23', '2022-11-19 07:26:23'),
 	(5, 2, 600, 'A-6', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
 	(6, 2, 598, 'A-4', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
-	(7, 2, 596, 'A-2', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42');
+	(7, 2, 596, 'A-2', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
+	(8, 6, NULL, 'Semen', 3, 600000, '2022-11-19 12:14:05', '2022-11-19 12:14:05'),
+	(9, 6, 8, 'AI-8', 1, 1500000, '2022-11-19 12:14:05', '2022-11-19 12:14:05'),
+	(10, 6, 9, 'AI-9', 1, 1500000, '2022-11-19 12:14:05', '2022-11-19 12:14:05'),
+	(11, 6, 11, 'AI-11', 1, 1500000, '2022-11-19 12:14:05', '2022-11-19 12:14:05');
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.password_resets: ~0 rows (approximately)
@@ -3965,14 +3970,14 @@ INSERT INTO `row_blocks` (`id`, `rowname`, `created_at`, `updated_at`) VALUES
 	(5, '5', NULL, NULL);
 /*!40000 ALTER TABLE `row_blocks` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.testimonials: ~0 rows (approximately)
+-- Dumping data for table kavlings_app.testimonials: ~1 rows (approximately)
 DELETE FROM `testimonials`;
 /*!40000 ALTER TABLE `testimonials` DISABLE KEYS */;
 INSERT INTO `testimonials` (`id`, `nama`, `testimonial_text`, `created_at`, `updated_at`) VALUES
 	(1, 'Prof Dulak Katilas', 'Pemesanan online melalui laman website ini sangat membantu saya', '2022-11-19 07:47:34', '2022-11-19 07:47:34');
 /*!40000 ALTER TABLE `testimonials` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.users: ~0 rows (approximately)
+-- Dumping data for table kavlings_app.users: ~1 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES

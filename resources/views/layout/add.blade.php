@@ -108,6 +108,29 @@
                                 @enderror
                             </div>
                         </div>
+                        @elseif ($rowtype == 'multipleselect')
+                        @php
+                        $value = $form[3];
+                        @endphp
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{$rowname}}">
+                                    {{$label}}
+                                </label>
+                                <select multiple="multiple" id="{{ $rowname}}" name="{{ $rowname}}[]"
+                                    class="form-select w-100 select2multiple @error($rowname) is-invalid @enderror">
+                                    <option></option>
+                                    @foreach ($value as $v)
+                                    <option value="{{$v->id}}">
+                                        {{ $v->text}}
+                                    </option>
+                                    @endforeach
+                                </select>
+                                @error($rowname)
+                                <div class="invalid-feedback" for="{{$rowname}}">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                         @endif
                         @endforeach
                     </div>

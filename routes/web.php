@@ -107,6 +107,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders/detail', [OrderController::class, 'detail'])->name('detail-orders');
     Route::post('/orders/verifikasi-cash', [OrderController::class, 'verifikasiCash'])->name('verifikasi-cash');
     Route::get('/orders/add', [OrderController::class, 'add'])->name('add-orders');
+    Route::post('/orders/store', [OrderController::class, 'store'])->name('store-orders');
 });
 
 

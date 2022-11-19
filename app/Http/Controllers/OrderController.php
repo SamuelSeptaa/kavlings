@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AddOn;
 use App\Models\Order;
+use App\Models\Kavling;
+use App\Models\OrderDetail;
 use App\Mail\PaymentSuccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -31,12 +34,49 @@ class OrderController extends Controller
 
     public function add()
     {
-        $forms = [
-            array('nama', 'text', 'Nama'),
-            array('testimonial_text', 'textarea', 'Teks Testimonial')
+        $kavlings = Kavling::select(['*'])->where('status', 'AVAILABLE')->get();
+
+        $kavlings = $kavlings->map(function ($item) {
+            return (object)
+            [
+                'id' => $item->id,
+                'text'    => $item->nama_kavling
+            ];
+        });
+
+        $metode_pembayaran = [
+            (object)[
+                'id'    => 'CASH',
+                'text'    => 'CASH'
+            ],
+            (object)[
+                'id'    => 'TRANSFER',
+                'text'    => 'TRANSFER'
+            ]
         ];
-        $this->data['title']        = "Tambah Order";
+
+        $addons = AddOn::select(['*'])->where('status', 'ON')->get();
+        $addons = $addons->map(function ($item) {
+            return (object)
+            [
+                'id' => $item->id,
+                'text'    => $item->nama_add_on
+            ];
+        });
+
+        $forms = [
+            array('nama_pemesan', 'text', 'Nama Pemesan'),
+            array('email_pemesan', 'text', 'Email Pemesan'),
+            array('nomor_pemesan', 'text', 'Nomor HP Pemesan'),
+            array('nama_terhibah', 'text', 'Nama Terhibah'),
+            array('nomor_hp_terhibah', 'text', 'Nomor HP terhibah'),
+            array('kavling_list', 'multipleselect', 'List Kavling yang dibeli', $kavlings),
+            array('add_on_list', 'multipleselect', 'List Add On', $addons),
+            array('metode_pembayaran', 'select', 'Metode Pembayaran', $metode_pembayaran),
+        ];
+        $this->data['title']        = "Tambah Pesanan";
         $this->data['forms']        = $forms;
+        return view('layout.add', $this->data);
     }
     /**
      * Store a newly created resource in storage.
@@ -46,7 +86,68 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nama_pemesan'          => 'required|min:5|max:100|regex:/^[A-Za-z\s]*$/',
+            'email_pemesan'         => 'required|email:dns',
+            'nomor_pemesan'         => 'required|digits_between:10,13|regex:/^(^08)(\d{3,4}-?){2}\d{3,4}$/',
+            'nama_terhibah'         => 'nullable|min:5|max:100|regex:/^[A-Za-z\s]*$/',
+            'nomor_hp_terhibah'     => 'nullable|digits_between:10,13|regex:/^(^08)(\d{3,4}-?){2}\d{3,4}$/',
+            'kavling_list'        => 'required',
+            'add_on_list'        => 'nullable',
+            'metode_pembayaran'     => 'required',
+        ]);
+
+
+
+        $total_kavling = count($data['kavling_list']);
+        $total = $total_kavling * 1500000;
+        unset($data['add_on_list']);
+        unset($data['kavling_list']);
+
+        $nomorInvoice = generateOrderNumber();
+        $data['nomor_invoice'] = $nomorInvoice;
+        $data['total'] = $total;
+        $data['status'] = 'SELESAI';
+        $data['status_pembayaran'] = 'SUCCESS';
+        $data['tanggal_pembayaran'] = date('Y-m-d H:i:s');
+        $order = Order::create($data);
+
+        if ($request->add_on_list != null)
+            foreach ($request->add_on_list as $addons_id) {
+                $add_ons = AddOn::find($addons_id);
+                $total += $add_ons->harga * $total_kavling;
+                OrderDetail::create(
+                    [
+                        'order_id'      => $order->id,
+                        'nama'          => $add_ons->nama_add_on,
+                        'jumlah'        => $total_kavling,
+                        'subtotal'      => $add_ons->harga * $total_kavling,
+                    ]
+                );
+            }
+
+        foreach ($request->kavling_list as $kavling_id) {
+            $kavling = Kavling::find($kavling_id);
+            OrderDetail::create(
+                [
+                    'order_id'      => $order->id,
+                    'nama'          => $kavling->nama_kavling,
+                    'jumlah'        => 1,
+                    'subtotal'      => 1500000,
+                    'kavling_id'    => $kavling->id,
+                ]
+            );
+            Kavling::where('id', $kavling->id)
+                ->update(['status'  => 'UNAVAILABLE']);
+        }
+
+        Order::where('id', $order->id)
+            ->update([
+                'total'         => $total,
+            ]);
+
+
+        return redirect()->route('orders')->with('success', "Pesanan dengan nomor Invoice $nomorInvoice ditambahkan");
     }
 
     /**
