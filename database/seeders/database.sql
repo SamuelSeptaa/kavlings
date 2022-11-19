@@ -2114,9 +2114,9 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(2062, 'B3-440', 'AVAILABLE', 9, NULL, NULL),
 	(2063, 'B3-441', 'AVAILABLE', 9, NULL, NULL),
 	(2064, 'B3-442', 'AVAILABLE', 9, NULL, NULL),
-	(2065, 'CI-1', 'AVAILABLE', 10, NULL, NULL),
-	(2066, 'CI-2', 'AVAILABLE', 10, NULL, NULL),
-	(2067, 'CI-3', 'AVAILABLE', 10, NULL, NULL),
+	(2065, 'CI-1', 'UNAVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
+	(2066, 'CI-2', 'UNAVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
+	(2067, 'CI-3', 'UNAVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
 	(2068, 'CI-4', 'AVAILABLE', 10, NULL, NULL),
 	(2069, 'CI-5', 'AVAILABLE', 10, NULL, NULL),
 	(2070, 'CI-6', 'AVAILABLE', 10, NULL, NULL),
@@ -3923,16 +3923,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(7, '2022_11_10_055423_create_row_blocks_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.orders: ~2 rows (approximately)
+-- Dumping data for table kavlings_app.orders: ~3 rows (approximately)
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`id`, `nomor_invoice`, `total`, `status`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`, `nama_pemesan`, `email_pemesan`, `nomor_pemesan`, `nama_terhibah`, `nomor_hp_terhibah`, `url_payment`, `created_at`, `updated_at`) VALUES
 	(1, 'KAV22110001', 5100000, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-11-19 07:27:10', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/F1A565CF-0A10-4A22-9C46-049200E8FF38', '2022-11-19 07:26:23', '2022-11-19 07:27:14'),
 	(2, 'KAV22110002', 4500000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 07:52:55', 'Mia Grace', 'tylooo186@gmail.com', '08123456789', NULL, NULL, NULL, '2022-11-19 07:35:42', '2022-11-19 07:52:55'),
-	(6, 'KAV22110003', 5100000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 12:14:05', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, NULL, '2022-11-19 12:14:05', '2022-11-19 12:14:05');
+	(7, 'KAV22110003', 5100000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 12:17:33', 'Mohammed Salah', 'tylooo186@gmail.com', '081234567892', 'Sadio Mane', '082252119921', NULL, '2022-11-19 12:17:33', '2022-11-19 12:17:33');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.order_details: ~7 rows (approximately)
+-- Dumping data for table kavlings_app.order_details: ~11 rows (approximately)
 DELETE FROM `order_details`;
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
 INSERT INTO `order_details` (`id`, `order_id`, `kavling_id`, `nama`, `jumlah`, `subtotal`, `created_at`, `updated_at`) VALUES
@@ -3943,10 +3943,10 @@ INSERT INTO `order_details` (`id`, `order_id`, `kavling_id`, `nama`, `jumlah`, `
 	(5, 2, 600, 'A-6', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
 	(6, 2, 598, 'A-4', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
 	(7, 2, 596, 'A-2', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
-	(8, 6, NULL, 'Semen', 3, 600000, '2022-11-19 12:14:05', '2022-11-19 12:14:05'),
-	(9, 6, 8, 'AI-8', 1, 1500000, '2022-11-19 12:14:05', '2022-11-19 12:14:05'),
-	(10, 6, 9, 'AI-9', 1, 1500000, '2022-11-19 12:14:05', '2022-11-19 12:14:05'),
-	(11, 6, 11, 'AI-11', 1, 1500000, '2022-11-19 12:14:05', '2022-11-19 12:14:05');
+	(12, 7, NULL, 'Semen', 3, 600000, '2022-11-19 12:17:33', '2022-11-19 12:17:33'),
+	(13, 7, 2065, 'CI-1', 1, 1500000, '2022-11-19 12:17:33', '2022-11-19 12:17:33'),
+	(14, 7, 2066, 'CI-2', 1, 1500000, '2022-11-19 12:17:33', '2022-11-19 12:17:33'),
+	(15, 7, 2067, 'CI-3', 1, 1500000, '2022-11-19 12:17:33', '2022-11-19 12:17:33');
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.password_resets: ~0 rows (approximately)
