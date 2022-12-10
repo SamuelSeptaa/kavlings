@@ -113,7 +113,7 @@
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="{{asset('skydash/vendors/jquery/jquery-3.5.1.min.js')}}"></script>
-    <script src="{{asset('skydash/vendors/chart.js')}}/Chart.min.js')}}"></script>
+    <script src="{{asset('skydash/vendors/chart.js/Chart.min.js')}}"></script>
     <script src="{{asset('skydash/vendors/datatables.net/jquery.dataTables.js')}}"></script>
     <script src="{{asset('skydash/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
     <script src="{{asset('skydash/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>

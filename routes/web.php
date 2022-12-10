@@ -77,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('logout');
 
     Route::get('/dashboard', [Dashboard::class, 'index'])->name("dashboard");
+    Route::post('/chart-penjualan', [Dashboard::class, 'chart_penjualan'])->name("chart-penjualan");
 
 
     //CRUD USER/ADMIN
