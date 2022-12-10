@@ -16,7 +16,7 @@ class Kavlings extends Controller
         return view('guest.list_block', $this->data);
     }
 
-    public function list_kavling()
+    public function full_denah()
     {
         Cart::clear();
 

@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item @if ($controller== 'block') active @endif">
             <a class="nav-link" href="{{route('block')}}">
-                <i class="icon-marquee menu-icon"></i>
+                <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">Block List</span>
             </a>
         </li>

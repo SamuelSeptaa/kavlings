@@ -49,7 +49,7 @@ class Testimonials extends Controller
             'nama'              => 'required|min:5|max:100',
             'testimonial_text'  => 'required|min:50|max:255'
         ]);
-
+        $data['status'] = "APPROVED";
         Testimonial::create($data);
 
         return redirect()->route('testimonials')->with('success', 'Testimonials ditambahkan');
@@ -70,10 +70,22 @@ class Testimonials extends Controller
                 return '
                 <div class="btn-group">
                     <a class="btn btn-primary icons-action" href="' . route('detail-testimonials', "id=$query->id") . '"><i class="mdi mdi-eye"></i></a>
+                    <button type="button" class="btn btn-success icons-action" onclick="approve(' . $query->id . ')"><i class="mdi mdi-checkbox-marked-circle-outline"></i></button>
                     <button type="button" class="btn btn-danger icons-action" onclick="deleteItem(' . $query->id . ')"><i class="mdi mdi-delete"></i></button>
                 </div> 
             ';
             })
+            ->addColumn('badgeStatus', function ($query) {
+                switch ($query->status) {
+                    case 'APPROVED':
+                        return '<span class="badge badge-success">' . $query->status . '</span>';
+                        break;
+                    case 'NOT_APPROVED':
+                        return '<span class="badge badge-warning">' . $query->status . '</span>';
+                        break;
+                }
+            })
+            ->rawColumns(['badgeStatus', 'action'])
             ->make(true);
     }
 
@@ -124,5 +136,16 @@ class Testimonials extends Controller
             ->delete();
 
         return response()->json(['message' => 'Berhasil dihapus']);
+    }
+
+    public function approve(Request $request)
+    {
+        Testimonial::findOrFail($request->id);
+        Testimonial::where('id', $request->id)
+            ->update([
+                'status'    => 'APPROVED'
+            ]);
+
+        return response()->json(['message' => 'Berhasil mengapprove ulasan/testimonial']);
     }
 }

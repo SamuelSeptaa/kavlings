@@ -17,7 +17,7 @@
                         <ul>
                             <li><a href="{{route('index')}}">Beranda</a></li>
                             <li><a href="{{route('about')}}">Tentang</a></li>
-                            <li><a href="{{route('contact')}}">Kontak</a></li>
+                            <li><a href="{{route('ulasan')}}">Ulasan</a></li>
                             <li><a href="{{route('kavling')}}">Kavlings</a>
                             </li>
                             <li>

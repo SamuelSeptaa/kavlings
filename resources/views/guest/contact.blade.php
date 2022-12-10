@@ -21,23 +21,24 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="form-title">
-                    <h2>Ada Pertanyaan?</h2>
+                    <h2>Berikan testimonial Anda!</h2>
                 </div>
-                <div id="form_status"></div>
                 <div class="contact-form">
-                    <form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
-                        <p>
-                            <input type="text" placeholder="Name" name="name" id="name">
-                            <input type="email" placeholder="Email" name="email" id="email">
-                        </p>
-                        <p>
-                            <input type="tel" placeholder="Phone" name="phone" id="phone">
-                            <input type="text" placeholder="Subject" name="subject" id="subject">
-                        </p>
-                        <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                        </p>
-                        <input type="hidden" name="token" value="FsWga4&@f6aw" />
-                        <p><input type="submit" value="Submit"></p>
+                    <form type="POST" id="testimonialsss">
+                        <div class="form-group">
+                            <label for="nama">Nama Anda</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama">
+                            <div class="invalid-feedback" for="nama"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="testimonial_text">Testimonial</label>
+                            <textarea type="text" class="form-control" id="testimonial_text" name="testimonial_text"
+                                placeholder="Enter Testimonial"></textarea>
+                            <div class="invalid-feedback" for="testimonial_text"></div>
+                        </div>
+                        <div class="form-group">
+                            <p><input type="submit" value="Submit"></p>
+                        </div>
                     </form>
                 </div>
             </div>

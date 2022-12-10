@@ -10,7 +10,7 @@ class Index extends Controller
     //
     public function index()
     {
-        $this->data['testimonials'] = Testimonial::all();
+        $this->data['testimonials'] = Testimonial::where('status', 'APPROVED')->get();
         return view('guest.index', $this->data);
     }
 }

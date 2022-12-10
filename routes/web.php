@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Testimonials;
 use App\Http\Controllers\ColumnController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Testi;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\KavlingController;
 
@@ -36,20 +37,24 @@ Route::get('/404', function () {
 
 
 Route::get('/', [Index::class, 'index'])->name('index');
+
 Route::get('/about', function () {
     return view('guest.about');
 })->name('about');
-Route::get('/contact', function () {
-    return view('guest.contact');
-})->name('contact');
+
+Route::get('/ulasan', [Testi::class, 'index'])->name('ulasan');
+Route::post('/create-ulasan', [Testi::class, 'create'])->name('create-ulasan');
+
 Route::get('/cart', function () {
     return view('guest.cart');
 })->name('cart');
+
 Route::get('/checkout', [Checkout::class, 'index'])->name('checkout');
 Route::post('/place-order', [Checkout::class, 'placeOrder'])->name('place-order');
 
 Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
 Route::get('/list-kavling', [Kavlings::class, 'block_kavling'])->name('kavling-list');
+Route::get('/all-kavling', [Kavlings::class, 'full_denah'])->name('all-kavling');
 
 
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
@@ -105,6 +110,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/testimonials/detail', [Testimonials::class, 'detail'])->name('detail-testimonials');
     Route::post('/testimonials/update', [Testimonials::class, 'update'])->name('update-testimonials');
     Route::post('/testimonials/delete', [Testimonials::class, 'destroy'])->name('delete-testimonials');
+    Route::post('/testimonials/approve', [Testimonials::class, 'approve'])->name('approve-testimonials');
 
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');

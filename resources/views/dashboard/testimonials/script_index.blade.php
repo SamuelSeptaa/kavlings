@@ -49,6 +49,55 @@
 		});
 	}
 
+	function approve(id) {
+		Swal.fire({
+			icon: "question",
+			title: "Approve testimonial yang dipilih?",
+			showCancelButton: true,
+			cancelButtonText: "Batal",
+			confirmButtonText: "Ya",
+			reverseButtons: true,
+		}).then((result) => {
+			if (result.isConfirmed) {
+				showLoading();
+				$.ajax({
+					type: "post",
+					dataType: "json",
+					url: "{{route('approve-testimonials')}}",
+					headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+					data: {
+						id: id,
+					},
+					beforeSend: function () {
+						showLoading();
+					},
+					complete: function () {
+						hideLoading();
+					},
+					success: function (response) {
+						Swal.fire({
+							confirmButtonColor: "#3ab50d",
+							icon: "success",
+							title: `${response.message}`,
+						}).then((result) => {
+							$("#data-testimonials").DataTable().ajax.reload();
+						});
+					},
+					error: function (request, status, error) {
+						Swal.fire({
+							confirmButtonColor: "#3ab50d",
+							icon: "error",
+							title: `${status}`,
+							text: `${error}`,
+						});
+					},
+				});
+			}
+		});
+	}
+
 $(document).ready(function(e){
     let filterValue = [];
         var table = $("#data-testimonials").DataTable({
@@ -80,6 +129,10 @@ $(document).ready(function(e){
 				render: function (data, type, full, meta) {
 					return "<div class='text-wrap width-300'>" + data + "</div>";
 				},
+			},
+            {data: 'badgeStatus', name: 'badgeStatus',
+				orderable: false, 
+                searchable: false,
 			},
         ],
 		dom: "rtip",

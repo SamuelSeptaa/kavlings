@@ -17,6 +17,7 @@ class CreateTestimonialsTable extends Migration
             $table->id();
             $table->string('nama', 50);
             $table->string('testimonial_text');
+            $table->enum('status', ['APPROVED', 'NOT_APPROVED'])->default('NOT_APPROVED');
             $table->timestamps();
         });
     }

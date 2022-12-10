@@ -2,7 +2,7 @@
 @section('dashboardcontent')
 <div class="content-wrapper">
     <div class="grid-margin stretch-card">
-        <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="col-lg-10 col-md-12 col-sm-12">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
@@ -36,6 +36,9 @@
                                     </th>
                                     <th>
                                         Testimonial
+                                    </th>
+                                    <th>
+                                        Status Approval
                                     </th>
                                 </tr>
                             </thead>

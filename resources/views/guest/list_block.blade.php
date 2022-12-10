@@ -28,7 +28,7 @@
                     btn-sm
                     btn-list-block">Block {{$b->block_name}}</a>
                 @endforeach
-                <a href="{{route('kavling-list')}}" class="btn btn-outline-info mr-2 my-1
+                <a href="{{route('all-kavling')}}" class="btn btn-outline-info mr-2 my-1
                     btn-sm
                     btn-list-block">Full Denah</a>
             </div>

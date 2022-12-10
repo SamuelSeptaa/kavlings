@@ -82,7 +82,7 @@
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <h3>Kavling</h3>
-                    <p class="product-price"><span>Per Kavling</span> 70$ </p>
+                    <p class="product-price"><span>Per Kavling</span> {{currencyIDR(1500000)}} </p>
                     <a href="{{route('kavling')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan
                         Sekarang</a>
                 </div>
@@ -90,7 +90,7 @@
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <h3>Add On</h3>
-                    <p class="product-price"><span>Mulai dari</span> 35$ </p>
+                    <p class="product-price"><span>Mulai dari</span> {{currencyIDR(250000)}} </p>
                     <a href="{{route('kavling')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Pesan
                         Sekarang</a>
                 </div>

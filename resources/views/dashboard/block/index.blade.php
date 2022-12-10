@@ -9,7 +9,7 @@
                         {{$title}}
                     </h4>
                     <div class="row mb-3 justify-content-end pr-3">
-                        <a href="{{route('kavling-list')}}" class="btn btn-primary">Lihat Denah</a>
+                        <a href="{{route('all-kavling')}}" class="btn btn-primary">Lihat Denah</a>
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-lg-8 col-md-10 col-sm-12 row">
