@@ -1,21 +1,23 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Index;
+use App\Http\Controllers\Login;
 use App\Http\Controllers\AddOns;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\BlockController;
+use App\Http\Controllers\Payment;
 use App\Http\Controllers\Checkout;
 use App\Http\Controllers\Kavlings;
+use App\Http\Controllers\UserList;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Index;
-use App\Http\Controllers\KavlingController;
-use App\Http\Controllers\Login;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\Payment;
-use App\Http\Controllers\Testimonials;
-use App\Http\Controllers\UserList;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Testimonials;
+use App\Http\Controllers\ColumnController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\KavlingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,9 @@ Route::get('/checkout', [Checkout::class, 'index'])->name('checkout');
 Route::post('/place-order', [Checkout::class, 'placeOrder'])->name('place-order');
 
 Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
+Route::get('/list-kavling', [Kavlings::class, 'block_kavling'])->name('kavling-list');
+
+
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');
 Route::post('/sign-in', [Login::class, 'sign_in'])->middleware('guest')->name('sign-in');
 
@@ -108,4 +113,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/orders/verifikasi-cash', [OrderController::class, 'verifikasiCash'])->name('verifikasi-cash');
     Route::get('/orders/add', [OrderController::class, 'add'])->name('add-orders');
     Route::post('/orders/store', [OrderController::class, 'store'])->name('store-orders');
+
+    Route::get('/column', [ColumnController::class, 'index'])->name('column');
+    Route::post('/column/show', [ColumnController::class, 'show'])->name('show-column');
+    Route::get('/column/add', [ColumnController::class, 'add'])->name('add-column');
+    Route::post('/column/store', [ColumnController::class, 'store'])->name('store-column');
+
+    Route::get('/block', [BlockController::class, 'index'])->name('block');
+    Route::post('/block/show', [BlockController::class, 'show'])->name('show-block');
+    Route::get('/block/detail', [BlockController::class, 'detail'])->name('detail-block');
+    Route::post('/block/update', [BlockController::class, 'update'])->name('update-block');
 });

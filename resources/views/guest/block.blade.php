@@ -7,7 +7,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
                     <p>TPU Kristen</p>
-                    <h1>List Kavling</h1>
+                    <h1>List Kavling Block {{$block->block_name}}</h1>
                 </div>
             </div>
         </div>
@@ -31,34 +31,26 @@
         </div>
 
         <div class="kavling-list">
-            <div class="street">
-                <h5>Jalan Yusuf Arimatea</h5>
-            </div>
-            <div class="denah-scrollable">
-                @foreach ($row as $r)
-                <div class="{{$r->classname}}">
-                    @foreach ($r->blocks as $b)
+            <div class="denah-scrollable d-flex justify-content-center">
+                <div class="{{$block->rowblocks->classname}}">
                     <div class="text-center mt-2">
-                        <h5>{{$b->block_name}}</h5>
+                        <h5>{{$block->block_name}}</h5>
                     </div>
-                    <div class="{{$r->classname}}i p-1 my-2">
-                        @if ($b->is_parking == 'YES')
+                    <div class="{{$block->rowblocks->classname}}i p-1 my-2">
+                        @if ($block->is_parking == 'YES')
                         <div class="parking-area">
                             <div class="parking-text">
                                 PARKING AREA
                             </div>
                         </div>
                         @endif
-                        @foreach ($b->kavlings as $a)
+                        @foreach ($block->kavlings as $a)
                         <div class="kavling @if ($a->status=='UNAVAILABLE') nonactive @endif" data-id="{{$a->id}}">
                             <div class="nama-kavling">{{$a->nama_kavling}}</div>
                         </div>
                         @endforeach
                     </div>
-                    @endforeach
-
                 </div>
-                @endforeach
             </div>
         </div>
 

@@ -23,22 +23,22 @@ INSERT INTO `add_ons` (`id`, `nama_add_on`, `harga`, `keterangan`, `status`, `cr
 -- Dumping data for table kavlings_app.blocks: ~15 rows (approximately)
 DELETE FROM `blocks`;
 /*!40000 ALTER TABLE `blocks` DISABLE KEYS */;
-INSERT INTO `blocks` (`id`, `block_name`, `row_block_id`, `created_at`, `updated_at`) VALUES
-	(1, 'AI-1', 1, NULL, NULL),
-	(2, 'AI-2', 1, NULL, NULL),
-	(3, 'AI-3', 1, NULL, NULL),
-	(4, 'A', 2, NULL, NULL),
-	(5, 'A-1', 2, NULL, NULL),
-	(6, 'A-2', 2, NULL, NULL),
-	(7, 'B-1', 3, NULL, NULL),
-	(8, 'B-2', 3, NULL, NULL),
-	(9, 'B-3', 3, NULL, NULL),
-	(10, 'C-1', 4, NULL, NULL),
-	(11, 'C-2', 4, NULL, NULL),
-	(12, 'C-3', 4, NULL, NULL),
-	(13, 'D-1', 5, NULL, NULL),
-	(14, 'D-2', 5, NULL, NULL),
-	(15, 'D-3', 5, NULL, NULL);
+INSERT INTO `blocks` (`id`, `block_name`, `is_parking`, `harga`, `row_block_id`, `created_at`, `updated_at`) VALUES
+	(1, 'AI-1', 'YES', 2500000.00, 1, NULL, NULL),
+	(2, 'AI-2', 'NO', 2500000.00, 1, NULL, NULL),
+	(3, 'AI-3', 'NO', 2500000.00, 1, NULL, NULL),
+	(4, 'A', 'YES', 2500000.00, 2, NULL, NULL),
+	(5, 'A-1', 'NO', 2500000.00, 2, NULL, NULL),
+	(6, 'A-2', 'NO', 2500000.00, 2, NULL, NULL),
+	(7, 'B-1', 'YES', 2500000.00, 3, NULL, NULL),
+	(8, 'B-2', 'NO', 2500000.00, 3, NULL, NULL),
+	(9, 'B-3', 'NO', 2500000.00, 3, NULL, NULL),
+	(10, 'C-1', 'YES', 2500000.00, 4, NULL, NULL),
+	(11, 'C-2', 'NO', 2500000.00, 4, NULL, NULL),
+	(12, 'C-3', 'NO', 2500000.00, 4, NULL, NULL),
+	(13, 'D-1', 'YES', 2500000.00, 5, NULL, NULL),
+	(14, 'D-2', 'NO', 2500000.00, 5, NULL, NULL),
+	(15, 'D-3', 'NO', 2500000.00, 5, NULL, NULL);
 /*!40000 ALTER TABLE `blocks` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.failed_jobs: ~0 rows (approximately)
@@ -3927,9 +3927,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`id`, `nomor_invoice`, `total`, `status`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`, `nama_pemesan`, `email_pemesan`, `nomor_pemesan`, `nama_terhibah`, `nomor_hp_terhibah`, `url_payment`, `created_at`, `updated_at`) VALUES
-	(1, 'KAV22110001', 5100000, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-11-19 07:27:10', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/F1A565CF-0A10-4A22-9C46-049200E8FF38', '2022-11-19 07:26:23', '2022-11-19 07:27:14'),
-	(2, 'KAV22110002', 4500000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 07:52:55', 'Mia Grace', 'tylooo186@gmail.com', '08123456789', NULL, NULL, NULL, '2022-11-19 07:35:42', '2022-11-19 07:52:55'),
-	(7, 'KAV22110003', 5100000, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 12:17:33', 'Mohammed Salah', 'tylooo186@gmail.com', '081234567892', 'Sadio Mane', '082252119921', NULL, '2022-11-19 12:17:33', '2022-11-19 12:17:33');
+	(1, 'KAV22110001', 5100000.00, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-11-19 07:27:10', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/F1A565CF-0A10-4A22-9C46-049200E8FF38', '2022-11-19 07:26:23', '2022-11-19 07:27:14'),
+	(2, 'KAV22110002', 4500000.00, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 07:52:55', 'Mia Grace', 'tylooo186@gmail.com', '08123456789', NULL, NULL, NULL, '2022-11-19 07:35:42', '2022-11-19 07:52:55'),
+	(7, 'KAV22110003', 5100000.00, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 12:17:33', 'Mohammed Salah', 'tylooo186@gmail.com', '081234567892', 'Sadio Mane', '082252119921', NULL, '2022-11-19 12:17:33', '2022-11-19 12:17:33');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.order_details: ~11 rows (approximately)
@@ -3962,12 +3962,12 @@ DELETE FROM `personal_access_tokens`;
 -- Dumping data for table kavlings_app.row_blocks: ~5 rows (approximately)
 DELETE FROM `row_blocks`;
 /*!40000 ALTER TABLE `row_blocks` DISABLE KEYS */;
-INSERT INTO `row_blocks` (`id`, `rowname`, `created_at`, `updated_at`) VALUES
-	(1, '1', NULL, NULL),
-	(2, '2', NULL, NULL),
-	(3, '3', NULL, NULL),
-	(4, '4', NULL, NULL),
-	(5, '5', NULL, NULL);
+INSERT INTO `row_blocks` (`id`, `rowname`, `classname`, `created_at`, `updated_at`) VALUES
+	(1, '1', 'block-a', NULL, NULL),
+	(2, '2', 'block-b', NULL, NULL),
+	(3, '3', 'block-c', NULL, NULL),
+	(4, '4', 'block-c', NULL, NULL),
+	(5, '5', 'block-a', NULL, NULL);
 /*!40000 ALTER TABLE `row_blocks` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.testimonials: ~1 rows (approximately)

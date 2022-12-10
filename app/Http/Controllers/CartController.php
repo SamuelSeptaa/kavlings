@@ -16,7 +16,7 @@ class CartController extends Controller
 
         $carts = [];
         foreach ($kavlings as $kavling) {
-            $K = Kavling::find($kavling);
+            $K = Kavling::with('block')->find($kavling);
             if ($K->status == 'UNAVAILABLE')
                 return response()->json(['message' => "Terdapat kavling yang tidak tersedia!"], 500);
             array_push(
@@ -24,7 +24,7 @@ class CartController extends Controller
                 [
                     'id'        => $K->id,
                     'name'      => $K->nama_kavling,
-                    'price'     => 1500000,
+                    'price'     => $K->block->harga,
                     'quantity'  => 1
                 ]
             );
@@ -32,7 +32,6 @@ class CartController extends Controller
         Cart::add(
             $carts
         );
-
         return response()->json(
             [
                 'message' => "Berhasil"

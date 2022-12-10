@@ -200,13 +200,13 @@
 	    color: #fff;
 	}
 	.block-ai{
-	  height: 770px;
+	  height: 745px;
 	}
 	.block-bi{
-	  height: 770px;
+	  height: 745px;
 	}
 	.block-ci{
-	  height: 770px;
+	  height: 745px;
 	}
 	.nama-kavling{
 		font-size: 8px;
@@ -614,15 +614,15 @@
 @media (min-width: 1200px) {
 	.block-ai{
 	  width: 380px;
-	  height: 750px;
+	  height: 745px;
 	}
 	.block-bi{
 		width: 180px;
-		height: 750px;
+		height: 745px;
 	}
 	.block-ci{
-		width: 750px;
-		height: 750px;
+		width: 745px;
+		height: 745px;
 	}
 	.kavling{
 		height: 35px;

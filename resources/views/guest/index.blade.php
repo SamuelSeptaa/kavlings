@@ -7,8 +7,8 @@
             <div class="col-lg-9 offset-lg-2 text-center">
                 <div class="hero-text">
                     <div class="hero-text-tablecell">
-                        <p class="subtitle">Fresh & Organic</p>
-                        <h1>Delicious Seasonal Fruits</h1>
+                        <p class="subtitle">Tempat Pemakaman Umum</p>
+                        <h1>Kristen Protestan</h1>
                         <div class="hero-btns">
                             <a href="/kavling" class="boxed-btn">Daftar Kavling</a>
                             <a href="/contact" class="bordered-btn">Kontak Kami</a>

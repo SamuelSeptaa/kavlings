@@ -16,6 +16,8 @@ class CreateBlocksTable extends Migration
         Schema::create('blocks', function (Blueprint $table) {
             $table->id();
             $table->string('block_name');
+            $table->enum('is_parking', ['YES', 'NO'])->default('NO');
+            $table->float('harga', 10, 2)->default(2500000);
             $table->foreignId('row_block_id');
             $table->timestamps();
         });

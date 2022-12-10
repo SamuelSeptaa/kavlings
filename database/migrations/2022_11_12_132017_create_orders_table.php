@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_invoice');
-            $table->integer('total');
+            $table->float('total', 10, 2);
             $table->enum('status', ['BARU', 'PEMBAYARAN', 'SELESAI', 'BATAL'])->default('BARU');
             $table->enum('metode_pembayaran', ['TRANSFER', 'CASH']);
             $table->enum('status_pembayaran', ['PENDING', 'SUCCESS', 'FAILED'])->default('PENDING');

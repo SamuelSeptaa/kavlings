@@ -16,7 +16,7 @@ class CreateAddOnsTable extends Migration
         Schema::create('add_ons', function (Blueprint $table) {
             $table->id();
             $table->string('nama_add_on');
-            $table->decimal('harga');
+            $table->float('harga', 10, 2);
             $table->text('keterangan');
             $table->enum('status', ['ON', 'OFF'])->default('ON');
             $table->timestamps();

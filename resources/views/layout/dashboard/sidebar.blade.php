@@ -7,9 +7,21 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+        <li class="nav-item @if ($controller== 'column') active @endif">
+            <a class="nav-link" href="{{route('column')}}">
+                <i class="icon-marquee menu-icon"></i>
+                <span class="menu-title">Baris Block List</span>
+            </a>
+        </li>
+        <li class="nav-item @if ($controller== 'block') active @endif">
+            <a class="nav-link" href="{{route('block')}}">
+                <i class="icon-marquee menu-icon"></i>
+                <span class="menu-title">Block List</span>
+            </a>
+        </li>
         <li class="nav-item @if ($controller== 'kavlingcontroller') active @endif">
             <a class="nav-link" href="{{route('list-kavling')}}">
-                <i class="icon-marquee menu-icon"></i>
+                <i class="icon-columns menu-icon"></i>
                 <span class="menu-title">Kavling List</span>
             </a>
         </li>

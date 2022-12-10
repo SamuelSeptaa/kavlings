@@ -107,6 +107,8 @@ class AddOns extends Controller
 
         $this->data['title']    = "Detail $detail->nama_add_on";
 
+
+
         $forms = [
             array('nama_add_on', 'text', 'Nama Add On'),
             array('harga', 'number', 'Harga Add On'),

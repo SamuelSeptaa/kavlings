@@ -16,6 +16,7 @@ class CreateRowBlocksTable extends Migration
         Schema::create('row_blocks', function (Blueprint $table) {
             $table->id();
             $table->string('rowname');
+            $table->string('classname');
             $table->timestamps();
         });
     }

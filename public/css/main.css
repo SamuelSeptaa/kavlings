@@ -2791,7 +2791,6 @@ table.order-details tbody td {
 }
 
 .kavling-list .denah-scrollable{          
-  width: 2550px;
   display: flex;
 }
 
@@ -2957,5 +2956,17 @@ input[type="checkbox"]:checked + label:before {
   color: white;
 }
 
+.btn-list-block{
+  display: inline-block;
+  font-size: 18px;
+  padding: 15px 25px;
+  color: #248AFD;
+  width: 150px;
+}
+
+.btn-list-block:hover{
+  background-color: #248AFD;
+  color: white;
+}
 
 
