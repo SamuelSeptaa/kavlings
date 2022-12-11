@@ -90,7 +90,7 @@ class ColumnController extends Controller
         }
         for ($i = 1; $i <= 3; $i++) {
             $newBlock = Block::create([
-                'block_name'    => $data['block_name'] . "-$i",
+                'block_name'    => $data['block_name'] . "$i",
                 'is_parking'    => ($i == 1) ? 'YES' : 'NO',
                 'row_block_id'  => $row->id
             ]);

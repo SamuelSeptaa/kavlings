@@ -100,7 +100,7 @@ class OrderController extends Controller
 
 
         $total_kavling = count($data['kavling_list']);
-        $total = $total_kavling * 1500000;
+        $total = 0;
         unset($data['add_on_list']);
         unset($data['kavling_list']);
 
@@ -119,10 +119,12 @@ class OrderController extends Controller
                     'order_id'      => $order->id,
                     'nama'          => $kavling->nama_kavling,
                     'jumlah'        => 1,
-                    'subtotal'      => 1500000,
+                    'subtotal'      => $kavling->block->harga,
                     'kavling_id'    => $kavling->id,
                 ]
             );
+
+            $total += $kavling->block->harga;
             Kavling::where('id', $kavling->id)
                 ->update(['status'  => 'UNAVAILABLE']);
         }
@@ -148,6 +150,7 @@ class OrderController extends Controller
 
         return redirect()->route('orders')->with('success', "Pesanan dengan nomor Invoice $nomorInvoice ditambahkan");
     }
+
 
     /**
      * Display the specified resource.

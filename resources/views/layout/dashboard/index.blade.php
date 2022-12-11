@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('skydash/css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('skydash/images/favicon.png')}}" />
+
 </head>
 
 <body>
@@ -136,6 +137,15 @@
     <script src="{{asset('skydash/js/Chart.roundedBarCharts.js')}}"></script>
     <script src="{{asset('skydash/js/script.js')}}"></script>
     <!-- End custom js for this page-->
+    <script>
+        const rupiah = (number) => {
+            return new Intl.NumberFormat("id-ID", {
+                minimumFractionDigits: 0,
+                style: "currency",
+                currency: "IDR"
+            }).format(number);
+        }
+    </script>
     @isset($script)
     @include($script)
     @endisset
