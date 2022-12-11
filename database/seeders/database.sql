@@ -50,19 +50,19 @@ DELETE FROM `failed_jobs`;
 DELETE FROM `kavlings`;
 /*!40000 ALTER TABLE `kavlings` DISABLE KEYS */;
 INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`, `updated_at`) VALUES
-	(1, 'AI-1', 'UNAVAILABLE', 1, NULL, '2022-11-18 04:13:51'),
-	(2, 'AI-2', 'UNAVAILABLE', 1, NULL, '2022-11-19 07:26:23'),
-	(3, 'AI-3', 'UNAVAILABLE', 1, NULL, NULL),
-	(4, 'AI-4', 'UNAVAILABLE', 1, NULL, '2022-11-19 07:26:23'),
-	(5, 'AI-5', 'UNAVAILABLE', 1, NULL, NULL),
-	(6, 'AI-6', 'UNAVAILABLE', 1, NULL, '2022-11-19 07:26:23'),
-	(7, 'AI-7', 'UNAVAILABLE', 1, NULL, NULL),
+	(1, 'AI-1', 'UNAVAILABLE', 1, NULL, '2022-12-11 10:33:00'),
+	(2, 'AI-2', 'UNAVAILABLE', 1, NULL, '2022-12-11 10:33:00'),
+	(3, 'AI-3', 'AVAILABLE', 1, NULL, NULL),
+	(4, 'AI-4', 'AVAILABLE', 1, NULL, '2022-11-19 07:26:23'),
+	(5, 'AI-5', 'AVAILABLE', 1, NULL, NULL),
+	(6, 'AI-6', 'AVAILABLE', 1, NULL, '2022-11-19 07:26:23'),
+	(7, 'AI-7', 'AVAILABLE', 1, NULL, NULL),
 	(8, 'AI-8', 'AVAILABLE', 1, NULL, NULL),
-	(9, 'AI-9', 'AVAILABLE', 1, NULL, NULL),
-	(10, 'AI-10', 'UNAVAILABLE', 1, NULL, NULL),
+	(9, 'AI-9', 'AVAILABLE', 1, NULL, '2022-12-10 21:27:31'),
+	(10, 'AI-10', 'AVAILABLE', 1, NULL, NULL),
 	(11, 'AI-11', 'AVAILABLE', 1, NULL, NULL),
-	(12, 'AI-12', 'AVAILABLE', 1, NULL, NULL),
-	(13, 'AI-13', 'AVAILABLE', 1, NULL, NULL),
+	(12, 'AI-12', 'AVAILABLE', 1, NULL, '2022-12-10 21:27:32'),
+	(13, 'AI-13', 'AVAILABLE', 1, NULL, '2022-12-10 21:27:58'),
 	(14, 'AI-14', 'AVAILABLE', 1, NULL, NULL),
 	(15, 'AI-15', 'AVAILABLE', 1, NULL, NULL),
 	(16, 'AI-16', 'AVAILABLE', 1, NULL, NULL),
@@ -85,7 +85,7 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(33, 'AI-33', 'AVAILABLE', 1, NULL, NULL),
 	(34, 'AI-34', 'AVAILABLE', 1, NULL, NULL),
 	(35, 'AI-35', 'AVAILABLE', 1, NULL, NULL),
-	(36, 'AI-36', 'AVAILABLE', 1, NULL, NULL),
+	(36, 'AI-36', 'AVAILABLE', 1, NULL, '2022-12-10 21:27:58'),
 	(37, 'AI-37', 'AVAILABLE', 1, NULL, NULL),
 	(38, 'AI-38', 'AVAILABLE', 1, NULL, NULL),
 	(39, 'AI-39', 'AVAILABLE', 1, NULL, NULL),
@@ -645,11 +645,11 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(593, 'AI3-220', 'AVAILABLE', 3, NULL, NULL),
 	(594, 'AI3-221', 'AVAILABLE', 3, NULL, NULL),
 	(595, 'A-1', 'AVAILABLE', 4, NULL, NULL),
-	(596, 'A-2', 'UNAVAILABLE', 4, NULL, '2022-11-19 07:35:42'),
+	(596, 'A-2', 'AVAILABLE', 4, NULL, '2022-11-19 07:35:42'),
 	(597, 'A-3', 'AVAILABLE', 4, NULL, NULL),
-	(598, 'A-4', 'UNAVAILABLE', 4, NULL, '2022-11-19 07:35:42'),
+	(598, 'A-4', 'AVAILABLE', 4, NULL, '2022-11-19 07:35:42'),
 	(599, 'A-5', 'AVAILABLE', 4, NULL, NULL),
-	(600, 'A-6', 'UNAVAILABLE', 4, NULL, '2022-11-19 07:35:42'),
+	(600, 'A-6', 'AVAILABLE', 4, NULL, '2022-11-19 07:35:42'),
 	(601, 'A-7', 'AVAILABLE', 4, NULL, NULL),
 	(602, 'A-8', 'AVAILABLE', 4, NULL, NULL),
 	(603, 'A-9', 'AVAILABLE', 4, NULL, NULL),
@@ -918,10 +918,10 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(866, 'A2-100', 'AVAILABLE', 6, NULL, NULL),
 	(867, 'A2-101', 'AVAILABLE', 6, NULL, NULL),
 	(868, 'A2-102', 'AVAILABLE', 6, NULL, NULL),
-	(869, 'B1-1', 'AVAILABLE', 7, NULL, NULL),
+	(869, 'B1-1', 'UNAVAILABLE', 7, NULL, '2022-12-11 10:33:33'),
 	(870, 'B1-2', 'AVAILABLE', 7, NULL, NULL),
 	(871, 'B1-3', 'AVAILABLE', 7, NULL, NULL),
-	(872, 'B1-4', 'AVAILABLE', 7, NULL, NULL),
+	(872, 'B1-4', 'UNAVAILABLE', 7, NULL, '2022-12-11 10:33:33'),
 	(873, 'B1-5', 'AVAILABLE', 7, NULL, NULL),
 	(874, 'B1-6', 'AVAILABLE', 7, NULL, NULL),
 	(875, 'B1-7', 'AVAILABLE', 7, NULL, NULL),
@@ -2114,10 +2114,10 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(2062, 'B3-440', 'AVAILABLE', 9, NULL, NULL),
 	(2063, 'B3-441', 'AVAILABLE', 9, NULL, NULL),
 	(2064, 'B3-442', 'AVAILABLE', 9, NULL, NULL),
-	(2065, 'CI-1', 'UNAVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
-	(2066, 'CI-2', 'UNAVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
-	(2067, 'CI-3', 'UNAVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
-	(2068, 'CI-4', 'AVAILABLE', 10, NULL, NULL),
+	(2065, 'CI-1', 'UNAVAILABLE', 10, NULL, '2022-12-11 10:40:14'),
+	(2066, 'CI-2', 'AVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
+	(2067, 'CI-3', 'AVAILABLE', 10, NULL, '2022-11-19 12:17:33'),
+	(2068, 'CI-4', 'UNAVAILABLE', 10, NULL, '2022-12-11 10:40:14'),
 	(2069, 'CI-5', 'AVAILABLE', 10, NULL, NULL),
 	(2070, 'CI-6', 'AVAILABLE', 10, NULL, NULL),
 	(2071, 'CI-7', 'AVAILABLE', 10, NULL, NULL),
@@ -2426,7 +2426,7 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(2374, 'CI-310', 'AVAILABLE', 10, NULL, NULL),
 	(2375, 'CI-311', 'AVAILABLE', 10, NULL, NULL),
 	(2376, 'CI-312', 'AVAILABLE', 10, NULL, NULL),
-	(2377, 'C2-1', 'AVAILABLE', 11, NULL, NULL),
+	(2377, 'C2-1', 'UNAVAILABLE', 11, NULL, '2022-12-11 10:40:14'),
 	(2378, 'C2-2', 'AVAILABLE', 11, NULL, NULL),
 	(2379, 'C2-3', 'AVAILABLE', 11, NULL, NULL),
 	(2380, 'C2-4', 'AVAILABLE', 11, NULL, NULL),
@@ -2868,7 +2868,7 @@ INSERT INTO `kavlings` (`id`, `nama_kavling`, `status`, `block_id`, `created_at`
 	(2816, 'C2-440', 'AVAILABLE', 11, NULL, NULL),
 	(2817, 'C2-441', 'AVAILABLE', 11, NULL, NULL),
 	(2818, 'C2-442', 'AVAILABLE', 11, NULL, NULL),
-	(2819, 'C3-1', 'AVAILABLE', 12, NULL, NULL),
+	(2819, 'C3-1', 'UNAVAILABLE', 12, NULL, '2022-12-11 10:40:14'),
 	(2820, 'C3-2', 'AVAILABLE', 12, NULL, NULL),
 	(2821, 'C3-3', 'AVAILABLE', 12, NULL, NULL),
 	(2822, 'C3-4', 'AVAILABLE', 12, NULL, NULL),
@@ -3923,30 +3923,28 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(7, '2022_11_10_055423_create_row_blocks_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.orders: ~3 rows (approximately)
+-- Dumping data for table kavlings_app.orders: ~0 rows (approximately)
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`id`, `nomor_invoice`, `total`, `status`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`, `nama_pemesan`, `email_pemesan`, `nomor_pemesan`, `nama_terhibah`, `nomor_hp_terhibah`, `url_payment`, `created_at`, `updated_at`) VALUES
-	(1, 'KAV22110001', 5100000.00, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-11-19 07:27:10', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, 'https://sandbox.ipaymu.com/payment/F1A565CF-0A10-4A22-9C46-049200E8FF38', '2022-11-19 07:26:23', '2022-11-19 07:27:14'),
-	(2, 'KAV22110002', 4500000.00, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 07:52:55', 'Mia Grace', 'tylooo186@gmail.com', '08123456789', NULL, NULL, NULL, '2022-11-19 07:35:42', '2022-11-19 07:52:55'),
-	(7, 'KAV22110003', 5100000.00, 'SELESAI', 'CASH', 'SUCCESS', '2022-11-19 12:17:33', 'Mohammed Salah', 'tylooo186@gmail.com', '081234567892', 'Sadio Mane', '082252119921', NULL, '2022-11-19 12:17:33', '2022-11-19 12:17:33');
+	(1, 'KAV22120001', 3000000.00, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-12-11 10:33:00', 'Andre Maulana', 'tylooo186@gmail.com', '082252961155', NULL, NULL, NULL, '2022-11-11 10:33:00', '2022-12-11 10:33:00'),
+	(2, 'KAV22120002', 3000000.00, 'SELESAI', 'CASH', 'SUCCESS', '2022-12-11 10:33:33', 'Mia Grace', 'mia@gmail.com', '08123456789', NULL, NULL, NULL, '2022-12-11 10:33:33', '2022-12-11 10:33:33'),
+	(3, 'KAV22120003', 10800000.00, 'SELESAI', 'TRANSFER', 'SUCCESS', '2022-12-11 10:40:13', 'Andre Maulana', '1234asdf@gmail.com', '081234567891', NULL, NULL, NULL, '2022-10-11 10:40:13', '2022-12-11 10:40:14');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.order_details: ~11 rows (approximately)
+-- Dumping data for table kavlings_app.order_details: ~0 rows (approximately)
 DELETE FROM `order_details`;
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
 INSERT INTO `order_details` (`id`, `order_id`, `kavling_id`, `nama`, `jumlah`, `subtotal`, `created_at`, `updated_at`) VALUES
-	(1, 1, 2, 'AI-2', 1, 1500000, '2022-11-19 07:26:23', '2022-11-19 07:26:23'),
-	(2, 1, 4, 'AI-4', 1, 1500000, '2022-11-19 07:26:23', '2022-11-19 07:26:23'),
-	(3, 1, 6, 'AI-6', 1, 1500000, '2022-11-19 07:26:23', '2022-11-19 07:26:23'),
-	(4, 1, NULL, 'Keramik', 3, 600000, '2022-11-19 07:26:23', '2022-11-19 07:26:23'),
-	(5, 2, 600, 'A-6', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
-	(6, 2, 598, 'A-4', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
-	(7, 2, 596, 'A-2', 1, 1500000, '2022-11-19 07:35:42', '2022-11-19 07:35:42'),
-	(12, 7, NULL, 'Semen', 3, 600000, '2022-11-19 12:17:33', '2022-11-19 12:17:33'),
-	(13, 7, 2065, 'CI-1', 1, 1500000, '2022-11-19 12:17:33', '2022-11-19 12:17:33'),
-	(14, 7, 2066, 'CI-2', 1, 1500000, '2022-11-19 12:17:33', '2022-11-19 12:17:33'),
-	(15, 7, 2067, 'CI-3', 1, 1500000, '2022-11-19 12:17:33', '2022-11-19 12:17:33');
+	(1, 1, 1, 'AI-1', 1, 1500000, '2022-12-11 10:33:00', '2022-12-11 10:33:00'),
+	(2, 1, 2, 'AI-2', 1, 1500000, '2022-12-11 10:33:00', '2022-12-11 10:33:00'),
+	(3, 2, 869, 'B1-1', 1, 1500000, '2022-11-11 10:33:33', '2022-12-11 10:33:33'),
+	(4, 2, 872, 'B1-4', 1, 1500000, '2022-11-11 10:33:33', '2022-12-11 10:33:33'),
+	(5, 3, 2065, 'CI-1', 1, 2500000, '2022-10-11 10:40:14', '2022-12-11 10:40:14'),
+	(6, 3, 2068, 'CI-4', 1, 2500000, '2022-10-11 10:40:14', '2022-12-11 10:40:14'),
+	(7, 3, 2377, 'C2-1', 1, 2500000, '2022-10-11 10:40:14', '2022-12-11 10:40:14'),
+	(8, 3, 2819, 'C3-1', 1, 2500000, '2022-10-11 10:40:14', '2022-12-11 10:40:14'),
+	(9, 3, NULL, 'Keramik', 4, 800000, '2022-10-11 10:40:14', '2022-12-11 10:40:14');
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 
 -- Dumping data for table kavlings_app.password_resets: ~0 rows (approximately)
@@ -3973,11 +3971,12 @@ INSERT INTO `row_blocks` (`id`, `rowname`, `classname`, `created_at`, `updated_a
 -- Dumping data for table kavlings_app.testimonials: ~1 rows (approximately)
 DELETE FROM `testimonials`;
 /*!40000 ALTER TABLE `testimonials` DISABLE KEYS */;
-INSERT INTO `testimonials` (`id`, `nama`, `testimonial_text`, `created_at`, `updated_at`) VALUES
-	(1, 'Prof Dulak Katilas', 'Pemesanan online melalui laman website ini sangat membantu saya', '2022-11-19 07:47:34', '2022-11-19 07:47:34');
+INSERT INTO `testimonials` (`id`, `nama`, `testimonial_text`, `status`, `created_at`, `updated_at`) VALUES
+	(2, 'dsadsa', 'dsadadadasdasdsdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'APPROVED', '2022-12-10 17:01:13', '2022-12-10 17:04:48'),
+	(3, 'We Are Dreamer', 'orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'APPROVED', '2022-12-10 17:05:15', '2022-12-10 17:05:15');
 /*!40000 ALTER TABLE `testimonials` ENABLE KEYS */;
 
--- Dumping data for table kavlings_app.users: ~1 rows (approximately)
+-- Dumping data for table kavlings_app.users: ~0 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
