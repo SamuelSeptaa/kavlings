@@ -10,11 +10,21 @@
                 <div class="row mb-3 justify-content-end pr-3">
                     <a href="{{route('add-orders')}}" class="btn btn-primary">Tambah</a>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col-lg-6 col-md-8 col-sm-12 row">
-                        <label class="col-sm-3 col-form-label">Search</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" name="search" id="search">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-md-4 col-lg-3 col-form-label">Filter Tanggal</label>
+                            <div class="col-sm-12 col-md-8 col-lg-9">
+                                <input type="text" class="form-control" name="daterange" id="daterange">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-md-4 col-lg-3 col-form-label">Search</label>
+                            <div class="col-sm-12 col-md-8 col-lg-9">
+                                <input type="text" class="form-control" name="search" id="search">
+                            </div>
                         </div>
                     </div>
                 </div>

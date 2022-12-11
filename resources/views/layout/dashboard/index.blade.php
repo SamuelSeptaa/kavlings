@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{asset('skydash/vendors/select2/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('skydash/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
 
+    <link rel="stylesheet" href="{{asset('skydash/vendors/daterange/daterange.css')}}">
+
     <link rel="stylesheet" href="{{asset('skydash/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('skydash/vendors/mapboxgl/mapbox-gl.css')}}">
     <!-- End plugin css for this page -->
@@ -120,6 +122,10 @@
     <script src="{{asset('skydash/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('skydash/js/dataTables.select.min.js')}}"></script>
     <script src="{{asset('skydash/vendors/select2/select2.min.js')}}"></script>
+
+    <script src="{{asset('skydash/vendors/moment/moment.js')}}"></script>
+    <script src="{{asset('skydash/vendors/daterange/daterange.js')}}"></script>
+
 
 
     <!-- End plugin js for this page -->

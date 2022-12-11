@@ -224,6 +224,7 @@ class OrderController extends Controller
             ->rawColumns(['statusPembayaranBadge', 'statusOrderBadge', 'action', 'kontak', 'metodePembayaran'])
             ->filter(function ($query) use ($request) {
                 $this->YajraFilterValue($request->filterValue, $query, 'status');
+                $this->filterDateRange($query, 'created_at', $request);
                 $this->YajraColumnSearch($query, ['nomor_invoice', 'nama_pemesan'], $request->search);
             })
             ->removeColumn([

@@ -66,4 +66,20 @@ class Controller extends BaseController
             }
         });
     }
+
+    /**
+     * filterDateRange
+     *
+     * @param  mixed $query
+     * @param  string $columnFilter
+     * @param  object $request
+     * @return void
+     */
+    protected function filterDateRange($query, $columnFilter, $request)
+    {
+        if ($request->startDate && $request->endDate) {
+            $query->where($columnFilter, '>=', "$request->startDate 00:00:00");
+            $query->where($columnFilter, '<=', "$request->endDate 23:59:59");
+        }
+    }
 }
