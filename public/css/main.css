@@ -2900,6 +2900,11 @@ table.order-details tbody td {
   background-color: #d90000;
   border-color: #a10000;
 }
+.kavling.searched{
+  color: #fff;
+  background-color: #04db00;
+  border-color: #83c111;
+}
 
 .boxes {
   margin: auto;

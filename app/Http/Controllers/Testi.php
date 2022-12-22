@@ -18,6 +18,7 @@ class Testi extends Controller
         $data = $request->validate([
             'nama'  => 'required|max:100|min:5',
             'testimonial_text'  => 'required|max:255|min:5',
+            'g-recaptcha-response' => 'recaptcha'
         ]);
 
         Testimonial::create($data);

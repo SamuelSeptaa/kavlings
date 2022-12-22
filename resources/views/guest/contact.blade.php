@@ -37,6 +37,9 @@
                             <div class="invalid-feedback" for="testimonial_text"></div>
                         </div>
                         <div class="form-group">
+                            <div> {!! htmlFormSnippet() !!} </div>
+                        </div>
+                        <div class="form-group">
                             <p><input type="submit" value="Submit"></p>
                         </div>
                     </form>

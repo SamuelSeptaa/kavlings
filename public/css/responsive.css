@@ -186,7 +186,7 @@
 	.single-product-content {
 	    margin-left: 15px;
 	}
-	a.mobile-hide.search-bar-icon {
+	button.mobile-hide.search-bar-icon {
 	    display: none!important;
 	}
 	.mobile-show {
@@ -555,7 +555,7 @@
 	    font-size: 20px;
 	    line-height: 1.5;
 	}
-	a.mobile-hide.search-bar-icon {
+	button.mobile-hide.search-bar-icon {
 	    display: none!important;
 	}
 	.mobile-show {

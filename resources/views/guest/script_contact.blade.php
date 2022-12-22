@@ -37,13 +37,22 @@
                         result.forEach(function ([field, message], index) {
                             $(`.invalid-feedback[for="${field}"]`).html(message);
                             $(`#${field}`).addClass("is-invalid");
+
+                            if(field == 'g-recaptcha-response'){
+                                Swal.fire({
+                                    title: `Captcha Belum Diisi`,
+                                    icon: "error",
+                                    confirmButtonColor: "#3085d6",
+                                    confirmButtonText: "Ok",
+                                });
+                            }
                         });
                     }
                 },
             });
         });
         $("#testimonialsss")
-        .find("input")
+        .find("input textarea")
         .on("input change", function (event) {
             $(this).removeClass("is-invalid");
         });

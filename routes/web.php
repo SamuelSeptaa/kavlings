@@ -55,6 +55,7 @@ Route::post('/place-order', [Checkout::class, 'placeOrder'])->name('place-order'
 Route::get('/kavling', [Kavlings::class, 'index'])->name('kavling');
 Route::get('/list-kavling', [Kavlings::class, 'block_kavling'])->name('kavling-list');
 Route::get('/all-kavling', [Kavlings::class, 'full_denah'])->name('all-kavling');
+Route::post('/cari-kavling', [Kavlings::class, 'cari_kavling'])->name('cari-kavling');
 
 
 Route::get('/login', [Login::class, 'login'])->middleware('guest')->name('login');

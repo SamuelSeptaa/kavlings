@@ -34,6 +34,8 @@
     <!-- responsive -->
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 
+
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
 </head>
 
 <body>
