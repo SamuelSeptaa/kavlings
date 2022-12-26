@@ -609,9 +609,9 @@ nav.main-menu > ul li:last-child {
   float: right;
 }
 
-.site-logo {
+.site-logo img{
   float: left;
-  max-width: 150px;
+  max-height: 100px;
 }
 
 ul.sub-menu li:last-child {
@@ -1361,7 +1361,7 @@ a.mobile-show.search-bar-icon:hover {
 
 ----------------------------------------------------------------------------- */
 .hero-bg {
-  background-image: url(../img/hero-bg.jpg);
+  background-image: url(../img/hero-bg.jpeg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
