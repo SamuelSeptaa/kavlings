@@ -35,7 +35,7 @@ class Checkout extends Controller
             'nama_pemesan' => 'required|max:100|min:5',
             'nomor_pemesan' => 'required|numeric|digits_between:10,13',
             'nama_terhibah' => 'nullable|max:100|min:8',
-            'nomor_hp_terhibah' => 'nullable|min:10|max:13|numeric|number',
+            'nomor_hp_terhibah' => 'nullable|digits_between:10,13|numeric',
             'metode_pembayaran' => 'required'
         ]);
 
@@ -98,7 +98,9 @@ class Checkout extends Controller
                 $price[] = $addons->harga;
             }
         //Hapus isi cart;
+
         Cart::clear();
+
         if ($data['metode_pembayaran'] == "TRANSFER") {
             $payment_detail = $this->createPaymentIpaymu($products, $qty, $price, $nomorInvoice, $data);
             if ($payment_detail['status']) {
@@ -212,7 +214,8 @@ class Checkout extends Controller
                     'sessionId' => $sessionId
                 ];
             } else {
-                echo $ret;
+                echo "<pre>";
+                var_dump($ret);
             }
             //End Response
         }

@@ -11,7 +11,7 @@
                         <h1>Kristen Protestan</h1>
                         <div class="hero-btns">
                             <a href="/kavling" class="boxed-btn">Daftar Kavling</a>
-                            <a href="/contact" class="bordered-btn">Kontak Kami</a>
+                            <a href="/ulasan" class="bordered-btn">Ulasan</a>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
                     <h3><span class="orange-text">Our</span> Services</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
-                        beatae optio.</p>
+                    <p>Kami Menyediakan Kavling yang dapat dipesan secara online melalui laman website ini.</p>
                 </div>
             </div>
         </div>

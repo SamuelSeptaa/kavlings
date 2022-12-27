@@ -162,7 +162,7 @@
                         <td align="left" bgcolor="#ffffff"
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                             <p style="margin: 0;">Berikut adalah ringkasan order Anda. Jika terdapat pertanyaan mengenai
-                                order Anda, silahkan <a href="{{route('contact')}}">hubungi kami</a>. Klik
+                                order Anda, silahkan <a href="{{route('ulasan')}}">hubungi kami</a>. Klik
                                 tombol di bawah ini untuk melakukan pembayaran Anda</p>
                         </td>
                     </tr>
@@ -189,7 +189,7 @@
                         <td align="left" bgcolor="#ffffff"
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                             <p style="margin: 0;">Berikut adalah ringkasan order Anda. Jika terdapat pertanyaan mengenai
-                                order Anda, silahkan <a href="{{route('contact')}}">hubungi kami</a>. Silahkan datang ke
+                                order Anda, silahkan <a href="{{route('ulasan')}}">hubungi kami</a>. Silahkan datang ke
                                 kantor Pengurus Yayasan untuk melakukan pembayaran.
                                 Pembayaran paling lambat 1 hari setelah email ini diterima.</p>
                         </td>
