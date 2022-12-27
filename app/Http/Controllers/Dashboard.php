@@ -47,7 +47,7 @@ class Dashboard extends Controller
                 WHERE YEAR(order_details.created_at)    = $year
                 AND orders.status = 'SELESAI'
                 GROUP BY
-                blocks.id
+                blocks.id, blocks.block_name
         "));
 
         $data = array();
