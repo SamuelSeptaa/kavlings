@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCreated;
 use Cart;
 use App\Models\AddOn;
 use App\Models\Order;
@@ -9,6 +10,7 @@ use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use App\Mail\OrderNotification;
 use App\Models\Kavling;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 class Checkout extends Controller
@@ -114,6 +116,11 @@ class Checkout extends Controller
                 $orderNew = Order::find($order->id);
                 Mail::to($data['email_pemesan'])->send(new OrderNotification($orderNew));
 
+                $admin = User::select('email')->get();
+                foreach ($admin as $a) {
+                    Mail::to($a->email)->send(new OrderCreated($orderNew));
+                }
+
                 return response()->json([
                     'message' => [
                         'title' => "Berhasil",
@@ -132,6 +139,10 @@ class Checkout extends Controller
                 ]);
             $orderNew = Order::find($order->id);
             Mail::to($data['email_pemesan'])->send(new OrderNotification($orderNew));
+            $admin = User::select('email')->get();
+            foreach ($admin as $a) {
+                Mail::to($a->email)->send(new OrderCreated($orderNew));
+            }
             return response()->json([
                 'message' => [
                     'title' => "Berhasil",
