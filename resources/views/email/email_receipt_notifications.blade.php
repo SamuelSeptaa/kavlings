@@ -133,7 +133,7 @@
                             style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
                             <h1
                                 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">
-                                Pembayaran Anda telah kami terima!</h1>
+                                Terdapat Pesanan Kavling Baru!</h1>
                         </td>
                     </tr>
                 </table>
@@ -161,7 +161,7 @@
                         <td align="left" bgcolor="#ffffff"
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                             <p style="margin: 0;">Hi Admin, Terdapat pemesanan kavling baru dari
-                                {{$order->nama_pemesan}}. Berikut adalah ringkasan order pelanggan. Jika
+                                {{$order->nama_pemesan}}. Berikut adalah ringkasan order pelanggan.
                         </td>
                     </tr>
                     <!-- end copy -->

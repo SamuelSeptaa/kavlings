@@ -161,9 +161,9 @@
                         <td align="left" bgcolor="#ffffff"
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                             <p style="margin: 0;">Hi {{$order->nama_pemesan}}, Pembayaran dengan nomor Invoice
-                                {{$order->nomor_invoice}} telah kami terima. Berikut adalah ringkasan order Anda. Jika
-                                terdapat pertanyaan mengenai
-                                order Anda, silahkan <a href="{{route('contact')}}">hubungi kami</a>. Terima kasih telah
+                                {{$order->nomor_invoice}} telah kami terima. Berikut adalah ringkasan order Anda.
+                                Silahkan mengisi <a href="{{route('ulasan')}}">ulasan</a> untuk pelayanan yang lebih
+                                baik. Terima kasih telah
                                 memesan Jasa kami</p>
                         </td>
                     </tr>
