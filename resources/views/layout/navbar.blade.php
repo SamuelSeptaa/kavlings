@@ -6,7 +6,7 @@
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.html">
+                        <a href="{{route('index')}}">
                             <img src="{{asset('img/logo.png')}}" alt="">
                         </a>
                     </div>
@@ -42,7 +42,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cari Kavling Anda</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cari Kavling</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -51,10 +51,10 @@
                 <form action="{{route('cari-kavling')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="nomor_invoice">Nomor Invoice</label>
-                        <input type="text" required class="form-control" id="nomor_invoice" name="nomor_invoice"
-                            placeholder="Masukkan nomor Invoice Pembelian Anda">
-                        <div class="invalid-feedback" for="nomor_invoice"></div>
+                        <label for="nomor_invoice">Nama yang dimakamkan</label>
+                        <input type="text" required class="form-control" id="nama_terkubur" name="nama_terkubur"
+                            placeholder="Masukkan nama yang dimakamkan">
+                        <div class="invalid-feedback" for="nama_terkubur"></div>
                     </div>
             </div>
             <div class="modal-footer">

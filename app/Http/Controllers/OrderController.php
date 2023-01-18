@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCancelled;
 use App\Models\AddOn;
 use App\Models\Order;
 use App\Models\Kavling;
@@ -68,6 +69,8 @@ class OrderController extends Controller
             array('nama_pemesan', 'text', 'Nama Pemesan'),
             array('email_pemesan', 'text', 'Email Pemesan'),
             array('nomor_pemesan', 'text', 'Nomor HP Pemesan'),
+            array('nama_terkubur', 'text', 'Nama yang dimakamkan'),
+            array('tanggal_pemakaman', 'date', 'Tanggal Pemakaman (Estimasi)'),
             array('nama_terhibah', 'text', 'Nama Terhibah'),
             array('nomor_hp_terhibah', 'text', 'Nomor HP terhibah'),
             array('kavling_list', 'multipleselect', 'List Kavling yang dibeli', $kavlings),
@@ -90,10 +93,12 @@ class OrderController extends Controller
             'nama_pemesan'          => 'required|min:5|max:100|regex:/^[A-Za-z\s]*$/',
             'email_pemesan'         => 'required|email:dns',
             'nomor_pemesan'         => 'required|digits_between:10,13|regex:/^(^08)(\d{3,4}-?){2}\d{3,4}$/',
+            'nama_terkubur'         => 'nullable|max:100|min:5',
+            'tanggal_pemakaman'     => 'nullable',
             'nama_terhibah'         => 'nullable|min:5|max:100|regex:/^[A-Za-z\s]*$/',
             'nomor_hp_terhibah'     => 'nullable|digits_between:10,13|regex:/^(^08)(\d{3,4}-?){2}\d{3,4}$/',
-            'kavling_list'        => 'required',
-            'add_on_list'        => 'nullable',
+            'kavling_list'          => 'required',
+            'add_on_list'           => 'nullable',
             'metode_pembayaran'     => 'required',
         ]);
 
@@ -179,7 +184,7 @@ class OrderController extends Controller
                     case 'SELESAI':
                         return '<span class="badge badge-success">' . $query->status . '</span>';
                         break;
-                    case 'CANCEL':
+                    case 'BATAL':
                         return '<span class="badge badge-danger">' . $query->status . '</span>';
                         break;
                 }
@@ -196,6 +201,9 @@ class OrderController extends Controller
                         return '<span class="badge badge-success">' . $query->status_pembayaran . '</span>';
                         break;
                     case 'FAILED':
+                        return '<span class="badge badge-danger">' . $query->status_pembayaran . '</span>';
+                        break;
+                    case 'CANCELED':
                         return '<span class="badge badge-danger">' . $query->status_pembayaran . '</span>';
                         break;
                 }
@@ -281,5 +289,18 @@ class OrderController extends Controller
 
         Mail::to($order->email_pemesan)->send(new PaymentSuccess($order));
         return redirect()->route('orders')->with('success', "Pesanan dengan nomor Invoice $order->nomor_invoice berhasil diverifikasi");
+    }
+
+    public function cancel(Request $request)
+    {
+        $order = Order::findOrFail($request->orderid);
+        Order::where('id', $request->orderid)
+            ->update([
+                'status_pembayaran'     => 'CANCELED',
+                'status'                => 'BATAL'
+            ]);
+
+        Mail::to($order->email_pemesan)->send(new OrderCancelled($order));
+        return redirect()->route('orders')->with('success', "Pesanan dengan nomor Invoice $order->nomor_invoice berhasil dibatalkan");
     }
 }

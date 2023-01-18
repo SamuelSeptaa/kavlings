@@ -37,6 +37,12 @@
                 <span class="menu-title">List Pesanan</span>
             </a>
         </li>
+        <li class="nav-item @if ($controller== 'report') active @endif">
+            <a class="nav-link" href="{{route('report')}}">
+                <i class="icon-paper-stack menu-icon"></i>
+                <span class="menu-title">Laporan Penjualan</span>
+            </a>
+        </li>
         <li class="nav-item @if ($controller== 'testimonials') active @endif">
             <a class="nav-link" href="{{route('testimonials')}}">
                 <i class="icon-paper-clip menu-icon"></i>

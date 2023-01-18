@@ -19,6 +19,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\Testi;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\KavlingController;
+use App\Http\Controllers\Report;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,11 @@ Route::post('/add-to-cart', [CartController::class, 'addtocart'])->name('add-to-
 Route::post('/payment-notify', [Payment::class, 'index'])->name('payment-notify');
 
 Route::get('/cartcontent', [CartController::class, 'cartcontent'])->name('cartcontent');
+
+
+
+
+Route::get('/test-email', [Checkout::class, 'testemail']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', function (Request $request) {
@@ -123,11 +129,17 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/orders/verifikasi-cash', [OrderController::class, 'verifikasiCash'])->name('verifikasi-cash');
     Route::get('/orders/add', [OrderController::class, 'add'])->name('add-orders');
     Route::post('/orders/store', [OrderController::class, 'store'])->name('store-orders');
+    Route::post('/orders/cancel', [OrderController::class, 'cancel'])->name('cancel-order');
 
     Route::get('/column', [ColumnController::class, 'index'])->name('column');
     Route::post('/column/show', [ColumnController::class, 'show'])->name('show-column');
     Route::get('/column/add', [ColumnController::class, 'add'])->name('add-column');
     Route::post('/column/store', [ColumnController::class, 'store'])->name('store-column');
+
+
+    Route::get('/report', [Report::class, 'index'])->name('report');
+    Route::post('/report/show', [Report::class, 'show'])->name('show-report');
+    Route::post('/report/show-report-block', [Report::class, 'show_report_block'])->name('show-report-block');
 
     Route::get('/block', [BlockController::class, 'index'])->name('block');
     Route::post('/block/show', [BlockController::class, 'show'])->name('show-block');

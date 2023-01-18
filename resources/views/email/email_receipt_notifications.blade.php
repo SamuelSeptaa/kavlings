@@ -102,6 +102,10 @@
             border: 0;
             outline: none;
         }
+
+        tr.border td {
+            border: 1px solid rgb(129, 108, 108);
+        }
     </style>
 
 </head>
@@ -171,6 +175,53 @@
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
+                                    <td align="left" width="40%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        Nama Pemesan
+                                    </td>
+                                    <td align="left" width="60%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        : {{$order->nama_pemesan}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" width="40%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        Nomor HP
+                                    </td>
+                                    <td align="left" width="60%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        : {{$order->nomor_pemesan}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" width="40%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        Tanggal Pemakaman
+                                    </td>
+                                    <td align="left" width="60%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        : {{$order->tanggal_pemakaman}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" width="40%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        Nama Yang Dimakamkan
+                                    </td>
+                                    <td align="left" width="60%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        : {{$order->nama_terkubur}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" bgcolor="#ffffff"
+                            style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
                                     <td align="left" bgcolor="#D2C7BA" width="75%"
                                         style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                                         <strong>Nomor Invoice #</strong>
@@ -182,11 +233,25 @@
                                         </strong>
                                     </td>
                                 </tr>
-                                @foreach ($order->orderDetail as $od)
-                                <tr>
+                                <tr class="border">
                                     <td align="left" width="75%"
                                         style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        Nama Kavling/Layanan
+                                    </td>
+                                    <td align="left" width="25%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        Harga
+                                    </td>
+                                </tr>
+                                @foreach ($order->orderDetail as $od)
+                                <tr class="border">
+                                    <td align="left" width="75%"
+                                        style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                        @if($od->kavling_id!=null)
+                                        {{"Kavling nomor $od->nama x $od->jumlah"}}
+                                        @else
                                         {{"$od->nama x $od->jumlah"}}
+                                        @endif
                                     </td>
                                     <td align="left" width="25%"
                                         style="padding: 6px 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">

@@ -38,7 +38,9 @@ class Checkout extends Controller
             'nomor_pemesan' => 'required|numeric|digits_between:10,13',
             'nama_terhibah' => 'nullable|max:100|min:8',
             'nomor_hp_terhibah' => 'nullable|digits_between:10,13|numeric',
-            'metode_pembayaran' => 'required'
+            'metode_pembayaran' => 'required',
+            'nama_terkubur' => 'nullable|max:100|min:5',
+            'tanggal_pemakaman' => 'nullable',
         ]);
 
         $nomorInvoice   = generateOrderNumber();
@@ -55,7 +57,9 @@ class Checkout extends Controller
                 'email_pemesan'     => $data['email_pemesan'],
                 'nomor_pemesan'     => $data['nomor_pemesan'],
                 'nama_tehibah'      => $data['nama_terhibah'],
-                'nomor_hp_terhibah' => $data['nomor_hp_terhibah']
+                'nomor_hp_terhibah' => $data['nomor_hp_terhibah'],
+                'nama_terkubur'     => $data['nama_terkubur'],
+                'tanggal_pemakaman' => $data['tanggal_pemakaman'],
             ]
         );
 
@@ -230,5 +234,11 @@ class Checkout extends Controller
             }
             //End Response
         }
+    }
+
+    public function testemail()
+    {
+        $orderNew = Order::find(1);
+        Mail::to('samuelsepta@gmail.com')->send(new OrderNotification($orderNew));
     }
 }

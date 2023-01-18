@@ -54,6 +54,20 @@
                                             <div class="invalid-feedback" for="nomor_pemesan"></div>
                                         </div>
                                         <div class="form-group">
+                                            <label for="nama_terkubur">Nama yang dimakamkan (Opsional)</label>
+                                            <input type="text" class="form-control" id="nama_terkubur"
+                                                name="nama_terkubur"
+                                                placeholder="Masukkan nama yang akan dimakamkan, pisahkan dengan koma">
+                                            <div class="invalid-feedback" for="nama_terkubur"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama_terkubur">Tanggal Pemakaman (estimasi)</label>
+                                            <input type="date" class="form-control" id="tanggal_pemakaman"
+                                                name="tanggal_pemakaman" placeholder="Tanggal Pemakaman"
+                                                min="{{date('Y-m-d')}}">
+                                            <div class="invalid-feedback" for="tanggal_pemakaman"></div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="nama_terhibah">Nama Terhibah (Opsional)</label>
                                             <input type="text" class="form-control" id="nama_terhibah"
                                                 name="nama_terhibah" placeholder="Enter nama terhibah">

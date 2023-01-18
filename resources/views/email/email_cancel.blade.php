@@ -137,7 +137,7 @@
                             style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
                             <h1
                                 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">
-                                Thank you for your order!</h1>
+                                Your order has been canceled, we're so sory for this trouble</h1>
                         </td>
                     </tr>
                 </table>
@@ -160,46 +160,19 @@
         <![endif]-->
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
 
-                    @if($order->metode_pembayaran == "TRANSFER")
+
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff"
                             style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">Berikut adalah ringkasan order Anda. Jika terdapat pertanyaan mengenai
-                                order Anda, silahkan <a href="{{route('ulasan')}}">hubungi kami</a>. Klik
-                                tombol di bawah ini untuk melakukan pembayaran Anda</p>
+                            <p style="margin: 0;">Hallo {{$order->nama_pemesan}}, kami mohon maaf dengan email ini
+                                menyampaikan bahwa pesanan Anda kami batalkan karena ada pesanan prioritas
+                                Jika Anda sudah membayar, silahkan datang ke kantor TPU untuk claim refund dengan
+                                menunjukkan email ini serta bukti/receipt pembayaran.
+                                Berikut ini data pesanan yang kami terima</p>
                         </td>
                     </tr>
                     <!-- end copy -->
-                    <tr>
-                        <td align="center" bgcolor="#ffffff">
-                            <!-- Border based button
-           https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-                            <a rel="noopener" target="_blank" href="{{$order->url_payment}}"
-                                style="background-color: #1F7F4C; font-size: 18px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; text-decoration: none; padding: 14px 20px; color: #ffffff; border-radius: 5px; display: inline-block; mso-padding-alt: 0;">
-                                <!--[if mso]>
-<i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
-<![endif]-->
-                                <span style="mso-text-raise: 15pt;">Pay &rarr;</span>
-                                <!--[if mso]>
-<i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i>
-<![endif]-->
-                            </a>
-                        </td>
-                    </tr>
-                    @else
-                    <!-- start copy -->
-                    <tr>
-                        <td align="left" bgcolor="#ffffff"
-                            style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">Berikut adalah ringkasan order Anda. Jika terdapat pertanyaan mengenai
-                                order Anda, silahkan <a href="{{route('ulasan')}}">hubungi kami</a>. Silahkan datang ke
-                                kantor Pengurus Yayasan untuk melakukan pembayaran.
-                                Pembayaran paling lambat 1 hari setelah email ini diterima.</p>
-                        </td>
-                    </tr>
-                    <!-- end copy -->
-                    @endif
                     <!-- start receipt table -->
                     <tr>
                         <td align="left" bgcolor="#ffffff"

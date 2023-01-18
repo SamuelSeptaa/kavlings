@@ -45,9 +45,9 @@ class Kavlings extends Controller
 
     public function cari_kavling(Request $request)
     {
-        $nomorInvoice = $request->nomor_invoice;
+        $nama_terkubur = $request->nama_terkubur;
 
-        $order = Order::with('orderDetail')->where('nomor_invoice', $nomorInvoice)->first();
+        $order = Order::with('orderDetail')->where('nama_terkubur', 'like', "%$nama_terkubur%")->first();
 
         $kavlingId = array();
         foreach ($order->orderDetail as $od) {

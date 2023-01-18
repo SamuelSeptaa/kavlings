@@ -29,6 +29,16 @@
                                         <td><a href="tel:{{$order->nomor_pemesan}}">{{$order->nomor_pemesan}}</a></td>
                                     </tr>
                                     <tr>
+                                        <td>Nama yang dimakamkan</td>
+                                        <td>{{($order->nama_terkubur) ? $order->nama_terkubur :
+                                            '-'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Pemakaman (Estimasi)</td>
+                                        <td>{{($order->tanggal_pemakaman) ? $order->tanggal_pemakaman :
+                                            '-'}}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Nama Terhibah</td>
                                         <td>{{($order->nama_terhibah) ? $order->nama_terhibah : '-'}}</td>
                                     </tr>
@@ -83,6 +93,17 @@
                             </form>
                         </div>
                         @endif
+                        <div class="mt-3">
+                            <form method="POST" action="{{route('cancel-order')}}">
+                                @csrf
+                                <input type="hidden" name="orderid" value="{{$order->id}}">
+                                <button type="submit" class="btn btn-danger mr-2">Cancel Pesanan</button>
+                                <p class="card-description mt-2">
+                                    <b>Catatan</b>: Klik Cancel Pesanan <code>HANYA</code> ketika ada pesanan yang
+                                    prioritas.
+                                </p>
+                            </form>
+                        </div>
 
                     </div>
                     <div class="col-md-12 col-lg-6 mt-5">
