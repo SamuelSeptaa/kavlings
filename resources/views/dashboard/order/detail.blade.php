@@ -70,6 +70,8 @@
                                             <span class="badge badge-success">{{$order->status_pembayaran}}</span>
                                             @elseif ($order->status_pembayaran == 'FAILED')
                                             <span class="badge badge-danger">{{$order->status_pembayaran}}</span>
+                                            @elseif ($order->status_pembayaran == 'CANCELED')
+                                            <span class="badge badge-danger">{{$order->status_pembayaran}}</span>
                                             @endif
                                         </td>
                                     </tr>
@@ -93,6 +95,7 @@
                             </form>
                         </div>
                         @endif
+                        @if ($order->status != "BATAL")
                         <div class="mt-3">
                             <form method="POST" action="{{route('cancel-order')}}">
                                 @csrf
@@ -104,7 +107,7 @@
                                 </p>
                             </form>
                         </div>
-
+                        @endif
                     </div>
                     <div class="col-md-12 col-lg-6 mt-5">
                         <h4 class="card-title">

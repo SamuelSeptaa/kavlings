@@ -300,6 +300,13 @@ class OrderController extends Controller
                 'status'                => 'BATAL'
             ]);
 
+        $kavlings = OrderDetail::where('order_id', $request->orderid)
+            ->where('kavling_id', "!=", NULL)->get();
+
+        foreach ($kavlings as $k) {
+            Kavling::where('id', $k->kavling_id)
+                ->update(['status'  => 'AVAILABLE']);
+        }
         Mail::to($order->email_pemesan)->send(new OrderCancelled($order));
         return redirect()->route('orders')->with('success', "Pesanan dengan nomor Invoice $order->nomor_invoice berhasil dibatalkan");
     }
