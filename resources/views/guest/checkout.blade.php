@@ -54,7 +54,7 @@
                                             <div class="invalid-feedback" for="nomor_pemesan"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nama_terkubur">Nama yang dimakamkan (Opsional)</label>
+                                            <label for="nama_terkubur">Nama yang dimakamkan</label>
                                             <input type="text" class="form-control" id="nama_terkubur"
                                                 name="nama_terkubur"
                                                 placeholder="Masukkan nama yang akan dimakamkan, pisahkan dengan koma">

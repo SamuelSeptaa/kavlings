@@ -47,15 +47,24 @@ class Kavlings extends Controller
     {
         $nama_terkubur = $request->nama_terkubur;
 
-        $order = Order::with('orderDetail')->where('nama_terkubur', 'like', "%$nama_terkubur%")->first();
+        $order = Order::with('orderDetail')->where('nama_terkubur', 'like', "%$nama_terkubur%")->firstOrFail();
 
         $kavlingId = array();
+        $kavlingName = array();
+        $blockNames = array();
         foreach ($order->orderDetail as $od) {
-            if ($od->kavling_id != null)
+            if ($od->kavling_id != null) {
                 array_push($kavlingId, $od->kavling_id);
+                array_push($kavlingName, $od->nama);
+                $blockName = Kavling::where('id', $od->kavling_id)->first();
+                array_push($blockNames, $blockName->block->block_name);
+            }
         }
 
+        $this->data['nama_terkubur']    = $nama_terkubur;
         $this->data['kavlingId']    = $kavlingId;
+        $this->data['kavlingName']    = $kavlingName;
+        $this->data['blockNames']    = array_unique($blockNames);
 
         $row = RowBlock::with('blocks')->orderBy('id', 'asc')->get();
         $this->data['row'] = $row;

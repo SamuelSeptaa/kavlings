@@ -18,7 +18,23 @@
 <!-- kavling section -->
 <div class="mt-150 mb-150">
     <div class="container">
-        <div class="h6">Keterangan :</div>
+        <div class="h6">Keterangan Hasil Pencarian :</div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-md-3">Nama yang dimakamkan </div>
+                <div class="col-md-9">: {{$nama_terkubur}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Nomor Kavling</div>
+                <div class="col-md-9">: @foreach ($kavlingName as $k) {{"Nomor $k,"}}
+                    @endforeach</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">Block Kavling</div>
+                <div class="col-md-9">: @foreach ($blockNames as $b) {{"Block $b,"}}
+                    @endforeach</div>
+            </div>
+        </div>
         <div class="mb-3">
             <div class="d-flex align-items-center mb-2">
                 <div class="kavling-keterangan mr-3"></div>

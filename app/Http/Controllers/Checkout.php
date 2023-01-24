@@ -39,7 +39,7 @@ class Checkout extends Controller
             'nama_terhibah' => 'nullable|max:100|min:8',
             'nomor_hp_terhibah' => 'nullable|digits_between:10,13|numeric',
             'metode_pembayaran' => 'required',
-            'nama_terkubur' => 'nullable|max:100|min:5',
+            'nama_terkubur' => 'required|max:100|min:5',
             'tanggal_pemakaman' => 'nullable',
         ]);
 
