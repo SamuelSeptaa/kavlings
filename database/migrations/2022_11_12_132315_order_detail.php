@@ -18,6 +18,7 @@ class OrderDetail extends Migration
             $table->foreignId('order_id');
             $table->foreignId('kavling_id')->nullable();
             $table->string('nama');
+            $table->string('nama_terkubur')->nullable();
             $table->integer('jumlah');
             $table->integer('subtotal');
             $table->timestamps();

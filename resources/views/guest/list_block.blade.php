@@ -25,14 +25,15 @@
                 <p>Silahkan Pilih Block Terlebih Dahulu</p>
             </div>
             <div class="row justify-content-center">
+                <a href="{{route('all-kavling')}}" class="btn btn-outline-info mr-2 my-1
+                    btn-sm
+                    btn-list-block">Full Denah</a>
                 @foreach ($blocks as $b)
                 <a href="{{route('kavling-list', 'block_id='.$b->id)}}" class="btn btn-outline-info mr-2 my-1
                     btn-sm
                     btn-list-block">Block {{$b->block_name}}</a>
                 @endforeach
-                <a href="{{route('all-kavling')}}" class="btn btn-outline-info mr-2 my-1
-                    btn-sm
-                    btn-list-block">Full Denah</a>
+
             </div>
         </div>
     </div>

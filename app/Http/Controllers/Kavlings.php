@@ -6,8 +6,10 @@ use Cart;
 use App\Models\Block;
 use App\Models\Kavling;
 use App\Models\Order;
+use App\Models\OrderDetail as ModelsOrderDetail;
 use App\Models\RowBlock;
 use Illuminate\Http\Request;
+use OrderDetail;
 
 class Kavlings extends Controller
 {
@@ -47,12 +49,12 @@ class Kavlings extends Controller
     {
         $nama_terkubur = $request->nama_terkubur;
 
-        $order = Order::with('orderDetail')->where('nama_terkubur', 'like', "%$nama_terkubur%")->firstOrFail();
+        $order = ModelsOrderDetail::where('nama_terkubur', 'like', "%$nama_terkubur%")->get();
 
         $kavlingId = array();
         $kavlingName = array();
         $blockNames = array();
-        foreach ($order->orderDetail as $od) {
+        foreach ($order as $od) {
             if ($od->kavling_id != null) {
                 array_push($kavlingId, $od->kavling_id);
                 array_push($kavlingName, $od->nama);

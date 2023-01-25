@@ -66,18 +66,21 @@ class Checkout extends Controller
         $products = [];
         $qty = [];
         $price = [];
+        $index = 0;
 
+        $nameList = explode(",", $data['nama_terkubur']);
         foreach ($cartItems as $cart) {
             OrderDetail::create(
                 [
                     'order_id'      => $order->id,
                     'nama'          => $cart->name,
+                    'nama_terkubur' => trim($nameList[$index]),
                     'kavling_id'    => $cart->id,
                     'jumlah'        => 1,
                     'subtotal'      => $cart->price,
                 ]
             );
-
+            $index++;
             $products[] = "Kavling - $cart->name";
             $qty[] = 1;
             $price[] = $cart->price;
@@ -234,11 +237,5 @@ class Checkout extends Controller
             }
             //End Response
         }
-    }
-
-    public function testemail()
-    {
-        $orderNew = Order::find(1);
-        Mail::to('samuelsepta@gmail.com')->send(new OrderNotification($orderNew));
     }
 }
